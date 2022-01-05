@@ -20,6 +20,10 @@ export const GlobalStyle = createGlobalStyle`
         text-decoration: none;
     }
 
+    .active {
+        width: 15px !important;
+        height: 15px !important;
+    }
 
 `;
 
