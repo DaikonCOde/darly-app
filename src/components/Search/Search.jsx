@@ -13,7 +13,6 @@ const Search = () => {
                 </ContentIcon>
                 <Form >
                     <input type='text' placeholder='¿Qué estas buscando?'/>
-                    <button></button>
                 </Form>
             </ContentForm>
         </ContentSearch>
