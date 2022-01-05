@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import { ContentCarousel, SingleItemCarousel, ItemsCarousel, ContentPoints } from './CarouselStyles';
 
-import useClientWith from '../../Hooks/useClientWith';
-
 const data = [
     {
         title: 'Hola mundo',
@@ -23,7 +21,6 @@ const Carousel = () => {
     const withCarousel =  data.length > 0 ? (data.length - 1) * 160 : 0;
 
     const [currentPosition, setCurrentPosition] = useState(withCarousel)
-    const currentWidth = useClientWith();
 
 
     const handlePosition = (e) => {
