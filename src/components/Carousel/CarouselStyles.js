@@ -21,12 +21,51 @@ export const SingleItemCarousel = styled.div`
     min-width: 300px;
     height: 190px;
     border-radius: 16px;
-    background: ${props => props.theme.colors.light_blue};
+    background: linear-gradient(180deg, #5D9CC6 -2.89%, #4E5BB3 114.03%);
     margin: 0 0 0 20px;
+    padding: 25px;
+    display: flex;
     &:nth-child(2) {
         margin-left: 0;
     }
 `
+export const ContentTextSlide = styled.div`
+    width: 70%;
+    color: ${ props => props.theme.colors.gray[100] };
+    & span {
+        font-size: 28px;
+        display: block;
+        font-weight: 700;
+    }
+    & h3 {
+        font-size: 21px;
+        font-weight: 600;
+    }
+
+    & a {
+        padding: 10px;
+        border-radius: 6px;
+        background: ${ props => props.theme.colors.gray[100] };
+        color: ${ props => props.theme.colors.light_blue };
+        width: fit-content;
+        margin: 20px 0 0;
+        font-weight: 600;
+        display: block
+    }
+`
+export const ContentImageSlide = styled.div`
+    position: relative;
+    bottom: -31px;
+    right: -20px;
+    width: fit-content;
+    z-index: 0;
+    & img {
+        width: 100%;
+    }
+`
+
+// Handles
+
 
 export const ContentPoints = styled.div`
     display: flex;

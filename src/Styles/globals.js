@@ -20,6 +20,10 @@ export const GlobalStyles = createGlobalStyle`
         text-decoration: none;
     }
 
+    button {
+        border: none;
+    }
+
     .active {
         width: 15px !important;
         height: 15px !important;

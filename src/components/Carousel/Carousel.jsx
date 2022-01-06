@@ -1,19 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import { CgChevronDoubleRight, CgChevronDoubleLeft } from 'react-icons/cg';
+import { Link } from 'react-router-dom';
 
-import { ContentCarousel, SingleItemCarousel, ItemsCarousel, ContentPoints, Arrow } from './CarouselStyles';
+import { ContentCarousel, 
+        SingleItemCarousel, 
+        ItemsCarousel, 
+        ContentPoints, 
+        Arrow,
+        ContentTextSlide,
+        ContentImageSlide
+    } from './CarouselStyles';
 
 const data = [
     {
-        title: 'Hola mundo',
+        title: 'Wireless HeadPhones',
+        cta: '50% Desc',
+        img_url: 'girlhead.png',
         id: 1
     },
     {
-        title: 'Hola mundo 2',
+        title: 'Smarth Watch',
+        cta: '40% Desc',
+        img_url: 'girlhead.png',
         id: 2
     },
     {
-        title: 'Hola mundo 3',
+        title: 'PS 5 lite',
+        cta: '20% Desc',
+        img_url: 'girlhead.png',
         id: 3
     },
 ]
@@ -92,9 +106,16 @@ const Carousel = () => {
                     <CgChevronDoubleLeft />
                 </Arrow>
                     {
-                        data.map(item => (
-                            <SingleItemCarousel key= {item.id}>
-                                {item.title}
+                        data.map(slide => (
+                            <SingleItemCarousel key= {slide.id}>
+                                <ContentTextSlide>
+                                    <span>{slide.cta}</span>
+                                    <h3>{slide.title}</h3>
+                                    <Link to='/'>Comprar</Link>
+                                </ContentTextSlide>
+                                <ContentImageSlide>
+                                    <img src={require(`../../Assets/image/${slide.img_url}`)} alt="" />
+                                </ContentImageSlide>
                             </SingleItemCarousel>
                         ))
                     }

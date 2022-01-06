@@ -17,7 +17,7 @@ export const ContentForm = styled(box)`
     display: flex;
     flex-direction: row;
     margin: 20px 0 0;
-    padding: 16px 14px;
+    padding: 14px 16px;
     width: 100%;
 `
 
