@@ -25,14 +25,26 @@ const Carousel = () => {
     const [currentPosition, setCurrentPosition] = useState(withCarousel)
     const [ currentId, setCurrentId ] = useState(0);
 
-    const handlePosition = (e) => {
-        const id = parseInt(e.target.id);
-
-        setCurrentId(id);
-
-    }
-
     useEffect(() => {
+
+        const changePositionSlide = ( id) => {
+            console.log(currentId);
+    
+            const withCarousel = (data.length - 1) * 160;
+            const position = withCarousel - ( id  * 320 );
+    
+            
+            setCurrentPosition(position)
+        }
+    
+        const activePoints = (id) => {
+            const points = document.querySelectorAll('.point');
+    
+            points.forEach( point => (parseInt(point.id) === id 
+                ? point.classList.add('active')
+                : point.classList.remove('active')
+            ));
+        }
 
         //  Change of carousel 
         changePositionSlide(currentId)
@@ -63,24 +75,13 @@ const Carousel = () => {
         }
     }
 
-    const changePositionSlide = ( id) => {
-        console.log(currentId);
+    const handlePosition = (e) => {
+        const id = parseInt(e.target.id);
 
-        const withCarousel = (data.length - 1) * 160;
-        const position = withCarousel - ( id  * 320 );
+        setCurrentId(id);
 
-        
-        setCurrentPosition(position)
     }
 
-    const activePoints = (id) => {
-        const points = document.querySelectorAll('.point');
-
-        points.forEach( point => (parseInt(point.id) === id 
-            ? point.classList.add('active')
-            : point.classList.remove('active')
-        ));
-    }
 
     return (
         <ContentCarousel >
