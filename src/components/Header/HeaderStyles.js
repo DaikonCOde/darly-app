@@ -1,8 +1,7 @@
 import styled from "styled-components";
-import { Theme } from "../../styles";
 
 export const ContentHeader = styled.div`
-    background: ${Theme.colors.gray[10]};
+    background: ${ props => props.theme.colors.gray[10]};
     display: grid;
     grid-template-columns: 50px 1fr 50px;
     padding: 20px 20px 30px;
@@ -10,14 +9,14 @@ export const ContentHeader = styled.div`
 
 export const ContentIcons = styled.div`
     align-self: center;
-    color: ${Theme.colors.gray[90]};
+    color: ${props => props.theme.colors.gray[90]};
     font-size: 25px;
     line-height: 40px;
     text-align: ${ props => props.align || 'start'};
 `
 
 export const ContentLogo = styled.div`
-    color: ${Theme.colors.gray[90]};
+    color: ${props => props.theme.colors.gray[90]};
     font-size: 28px;
     font-weight: 600;
     text-align: center;
