@@ -4,6 +4,7 @@ export default {
         'light_blue': '#4A9CDC',
         'yellow': '#F7C651',
         'white': '#ffffff', 
+        'gradient': 'linear-gradient(138.31deg, #5D9CC6 -2.89%, #4E5BB3 114.03%)',
         'gray': {
         10: '#1F1F1F',
         20: '#262626',

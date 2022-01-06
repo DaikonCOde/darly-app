@@ -28,11 +28,9 @@ const Carousel = () => {
     useEffect(() => {
 
         const changePositionSlide = ( id) => {
-            console.log(currentId);
     
             const withCarousel = (data.length - 1) * 160;
             const position = withCarousel - ( id  * 320 );
-    
             
             setCurrentPosition(position)
         }

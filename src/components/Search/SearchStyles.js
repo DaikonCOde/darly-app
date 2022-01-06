@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { box } from '../../Styles/GlobalComponents/box'
 
 export const ContentSearch = styled.div`
     margin: 0 20px;
@@ -12,11 +13,7 @@ export const TitleSearch = styled.h4`
     text-transform: capitalize;
 `
 
-export const ContentForm = styled.div`
-    background: linear-gradient(${props => props.theme.colors.gray[20]}, ${props => props.theme.colors.gray[20]}) padding-box, linear-gradient(155deg, #2F3134 16.19%, #202329 82.15%) border-box;
-    border: 2px solid transparent;
-    border-radius: ${props => props.theme.radius[1]};
-    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.301983);
+export const ContentForm = styled(box)`
     display: flex;
     flex-direction: row;
     margin: 20px 0 0;

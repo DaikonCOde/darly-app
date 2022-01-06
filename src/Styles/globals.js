@@ -25,4 +25,9 @@ export const GlobalStyles = createGlobalStyle`
         height: 15px !important;
     }
 
+    .categoryActive {
+        background: linear-gradient(138.31deg, #5D9CC6 -2.89%, #4E5BB3 114.03%) !important;
+        border: none
+    }
+
 `;
