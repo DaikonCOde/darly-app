@@ -13,6 +13,15 @@ export const ContentIcons = styled.div`
     font-size: 25px;
     line-height: 40px;
     text-align: ${ props => props.align || 'start'};
+    position: relative;
+    &::before {
+        position: absolute;
+        content: '';
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
 `
 
 export const ContentLogo = styled.div`
