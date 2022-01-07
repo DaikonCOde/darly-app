@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import { ContentNavCar, HeaderNavCar, BodyNavCar, FooterNavCar} from './NavCarStyles'
-import { CgChevronLeft } from 'react-icons/cg'
-import { useEffect } from 'react/cjs/react.development'
+import { CgChevronLeft } from 'react-icons/cg';
 
 const listItems = [
     {
