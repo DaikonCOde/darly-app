@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from 'react'
 
+// Redux
+import { useSelector } from 'react-redux';
+// Styles
 import { ContentNavCar, HeaderNavCar, BodyNavCar, FooterNavCar} from './NavCarStyles'
+// Icons
 import { CgChevronLeft } from 'react-icons/cg';
 
-const listItems = [
-    {
-        id: 0,
-        title: 'Hola mundo',
-    }
-]
 
 
 const NavCar = ({ isOpen, onClose}) => {
 
     const [ totalCount, setTotalCount ] = useState(0);
+    const { productsAdded } = useSelector( (state) => state.addToCar )
 
     useEffect(() => {
         setTotalCount(0)
@@ -31,14 +30,14 @@ const NavCar = ({ isOpen, onClose}) => {
             </HeaderNavCar>
             <BodyNavCar>
                 {
-                    listItems.length === 0 
+                    productsAdded.length === 0 
                         ? (
                             <div>
                                 Tu carrito esta basio
                             </div>
                         )
                         : (
-                            listItems.map((item) => {
+                            productsAdded.map((item) => {
                                 
                                 return (
                                     <div key={item.id}>

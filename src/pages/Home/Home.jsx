@@ -1,10 +1,14 @@
 import React  from 'react';
+
+// Components
 import Search from '../../components/Search/Search';
 import Carousel from '../../components/Carousel/Carousel';
 import ListCategories from '../../components/ListCategories/ListCategories';
+import GridProducts from '../../components/GridProducts/GridProducts';
+
+// Styles
 
 import { ContentHome } from './HomeStyles';
-import GridProducts from '../../components/GridProducts/GridProducts';
 
 const Home = () => {
 
@@ -16,7 +20,6 @@ const Home = () => {
                 <ListCategories />
                 <GridProducts />
             </ContentHome>
-            
         </>
     )
 }

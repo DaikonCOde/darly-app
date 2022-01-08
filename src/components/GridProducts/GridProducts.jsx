@@ -1,7 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom' 
+
+// Reducers
+import { addProduct, incrementCountProduct } from '../../Store/Reducers/AddToCar/AddToCar';
+import { useSelector, useDispatch } from 'react-redux';
+
+// Styles
 import { ContentProducts, SingleProduct, ContentTitle, ContentImage, ContentPrice } from './GridProductsStyles'
 
+// Icons
 import { CgShoppingCart } from 'react-icons/cg'
 
 
@@ -45,6 +52,23 @@ const products = [
 ]
 
 const GridProducts = () => {
+
+    const { productsAdded } = useSelector( (state) => state.addToCar );
+
+    const dispatch = useDispatch();
+    
+    console.log(productsAdded);  
+    const submitProductCar = (id) => {
+
+        const productToBeAdded = products.filter( (product) => product.id === id  );
+    
+        const filterProductos = productsAdded.find(product => product.id === id);
+        
+        filterProductos === undefined
+            ? dispatch( addProduct(...productToBeAdded) )
+            : dispatch( incrementCountProduct(id) )
+    }
+
     return (
         <ContentProducts>
             {
@@ -63,7 +87,7 @@ const GridProducts = () => {
                                     <span className='priceTotal'>S/. {((product.price * 100) / 75).toFixed(2) }</span>
                                     <span className='priceDesc' >S/. {product.price}</span>
                                 </div>
-                                <button type='button' className='addToCart'>
+                                <button type='button' className='addToCart' onClick={ () => submitProductCar(product.id) } >
                                     <CgShoppingCart />
                                 </button>
                             </ContentPrice>
