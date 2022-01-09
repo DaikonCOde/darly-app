@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import NavCar from '../NavCar/NavCar'
+import NavCar from '../NavCart/NavCart'
 
 import { CgMenuLeft, CgShoppingCart } from 'react-icons/cg'
 

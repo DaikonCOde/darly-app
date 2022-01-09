@@ -44,7 +44,6 @@ export const HeaderNavCar = styled.div`
 `
 
 export const BodyNavCar = styled.div`
-
 `
 export const FooterNavCar = styled.div`
     padding: 20px 50px;

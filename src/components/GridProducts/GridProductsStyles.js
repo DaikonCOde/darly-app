@@ -62,6 +62,10 @@ export const ContentPrice = styled.div`
         padding: 6px;
         border-radius: 4px;
         line-height: 0;
+        transition: all .3 linear;
+        &:active {
+            transform: scale(0.9);
+        }
     }
 
 `

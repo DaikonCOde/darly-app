@@ -1,22 +1,31 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 
 // Redux
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { updateTotalCount } from '../../Store/Reducers/AddToCart/AddToCart';
 // Styles
 import { ContentNavCar, HeaderNavCar, BodyNavCar, FooterNavCar} from './NavCarStyles'
 // Icons
 import { CgChevronLeft } from 'react-icons/cg';
+import ProductsAdded from './ProductsAdded';
+import CartEmpty from './CartEmpty';
 
 
 
 const NavCar = ({ isOpen, onClose}) => {
 
-    const [ totalCount, setTotalCount ] = useState(0);
-    const { productsAdded } = useSelector( (state) => state.addToCar )
+    const dispatch = useDispatch();
+
+    const { totalCount } = useSelector( (state) => state.addToCart );
+    const { productsAdded } = useSelector( (state) => state.addToCart )
+    console.log(totalCount)
 
     useEffect(() => {
-        setTotalCount(0)
-    }, [])
+
+        dispatch( updateTotalCount() );
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [productsAdded])
 
     return (
         <ContentNavCar isOpen={isOpen} >
@@ -31,21 +40,8 @@ const NavCar = ({ isOpen, onClose}) => {
             <BodyNavCar>
                 {
                     productsAdded.length === 0 
-                        ? (
-                            <div>
-                                Tu carrito esta basio
-                            </div>
-                        )
-                        : (
-                            productsAdded.map((item) => {
-                                
-                                return (
-                                    <div key={item.id}>
-                                        {item.title}
-                                    </div>
-                                )
-                            })
-                        )
+                        ? <CartEmpty />
+                        : <ProductsAdded products={productsAdded} />
                 }
             </BodyNavCar>
             <FooterNavCar>

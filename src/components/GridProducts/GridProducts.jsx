@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom' 
 
 // Reducers
-import { addProduct, incrementCountProduct } from '../../Store/Reducers/AddToCar/AddToCar';
+import { addProduct, incrementCountProduct } from '../../Store/Reducers/AddToCart/AddToCart';
 import { useSelector, useDispatch } from 'react-redux';
 
 // Styles
@@ -53,11 +53,10 @@ const products = [
 
 const GridProducts = () => {
 
-    const { productsAdded } = useSelector( (state) => state.addToCar );
+    const { productsAdded } = useSelector( (state) => state.addToCart );
 
     const dispatch = useDispatch();
     
-    console.log(productsAdded);  
     const submitProductCar = (id) => {
 
         const productToBeAdded = products.filter( (product) => product.id === id  );

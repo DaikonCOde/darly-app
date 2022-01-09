@@ -1,10 +1,11 @@
 /*eslint no-unused-expressions: "error"*/
 import { createSlice } from "@reduxjs/toolkit";
 
-export const AddToCar = createSlice({
-    name: "AddToCar",
+export const AddToCart = createSlice({
+    name: "AddToCart",
     initialState: {
         productsAdded: [],
+        totalCount: 0,
     },
     reducers: {
         addProduct: (state, action) => {
@@ -13,6 +14,12 @@ export const AddToCar = createSlice({
 
         },  
         removeProduct: (state, action) => {
+
+            const idProduct = action.payload
+
+            const productIndex = state.productsAdded.findIndex( (product) => product.id === idProduct );
+
+            state.productsAdded.splice(productIndex, 1);
             
         },
         incrementCountProduct: (state, action) => {
@@ -21,10 +28,7 @@ export const AddToCar = createSlice({
 
             const productIndex = state.productsAdded.findIndex( (product) => product.id === idProduct );
 
-            // eslint-disable-next-line no-unused-expressions
             state.productsAdded[productIndex].count += 1
-
-            console.log(productIndex)
 
         },
         decrementCountProduct: ( state, action ) => {
@@ -32,16 +36,29 @@ export const AddToCar = createSlice({
 
             const productIndex = state.productsAdded.findIndex( (product) => product.id === idProduct );
 
-            // eslint-disable-next-line no-unused-expressions
             if ( state.productsAdded[productIndex].count > 1 ) {
                 state.productsAdded[productIndex].count -= 1
             }
 
         },
+
+        updateTotalCount: ( state ) => {
+
+            const listTotalCount =  state.productsAdded.length === 0 ? [ 0 ] : state.productsAdded.map( (product) => product.price * product.count )
+
+            state.totalCount = listTotalCount.reduce((prev, current) => prev + current )
+        },
     },
 });
 
 // Action creators are generated for each case reducer function
-export const { addProduct, removeProduct, incrementCountProduct } = AddToCar.actions
+export const { 
+    addProduct, 
+    removeProduct, 
+    incrementCountProduct, 
+    decrementCountProduct, 
+    updateTotalCount
+    } = AddToCart.actions
+    
 
-export default AddToCar.reducer
+export default AddToCart.reducer
