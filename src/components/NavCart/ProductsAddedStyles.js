@@ -9,16 +9,16 @@ export const ContentProductsAdded = styled.ul`
 `
 
 export const SingleProductAdded = styled(box)`
-    padding: 20px 10px;
+    padding: 15px 10px;
     display: grid;
     margin: 15px 0;
-    grid-template: 110px 30px / 40% 60% ;
+    grid-template: 105px 30px / 40% 60% ;
 `
 
 export const ImageProduct = styled.div`
     width: 100%;
     & .imageProduct {
-        max-height: 110px;
+        max-height: 100px;
         display: block;
         margin: 0 auto;
     }
@@ -54,7 +54,7 @@ export const DescriptionProduct = styled.div`
         font-size: 20px;
         font-weight: 600;
         display: block;
-        margin: 15px 0 0 0;
+        margin: 10px 0 0 0;
         span {
             font-size: 18px;
             text-decoration: line-through;
@@ -85,7 +85,7 @@ export const ButtonsCount = styled(box)`
     height: 30px;
     color: ${ props => props.theme.colors.gray[100] };
     font-weight: 700;
-    transition: all .3 linear;
+    transition: all .3s linear;
     &:active {
         transform: scale(0.85);
     }
@@ -93,11 +93,11 @@ export const ButtonsCount = styled(box)`
 
 export const DeleteProduct = styled.button`
     justify-self: flex-end;
+    align-self: flex-end;
     background: none;
     display: block;
     width: fit-content;
     transition: all .3s linear;
-
     & .deleteIcon {
         color: ${ props => props.theme.colors.gray[80] };
         font-size: 20px;

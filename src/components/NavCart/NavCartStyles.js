@@ -46,10 +46,11 @@ export const HeaderNavCar = styled.div`
 export const BodyNavCar = styled.div`
 `
 export const FooterNavCar = styled.div`
-    padding: 20px 50px;
+    padding: 20px 30px;
     background: ${ props => props.theme.colors.gray[20] };
     display: flex;
     position: fixed;
+    justify-content: space-around;
     bottom: 0;
     left: 0;
     right: 0;
@@ -66,7 +67,10 @@ export const FooterNavCar = styled.div`
         background: ${ props => props.theme.colors.gradient };
         border-radius: 10px;
         display: block;
-        margin: 0 0 0 auto  ;
-        text-transform: uppercase
+        text-transform: uppercase;
+        transition: all .3s linear;
+        &:active {
+            transform: scale(0.85);
+        }
     }
 `

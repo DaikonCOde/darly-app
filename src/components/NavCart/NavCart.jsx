@@ -4,7 +4,7 @@ import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { updateTotalCount } from '../../Store/Reducers/AddToCart/AddToCart';
 // Styles
-import { ContentNavCar, HeaderNavCar, BodyNavCar, FooterNavCar} from './NavCarStyles'
+import { ContentNavCar, HeaderNavCar, BodyNavCar, FooterNavCar} from './NavCartStyles'
 // Icons
 import { CgChevronLeft } from 'react-icons/cg';
 import ProductsAdded from './ProductsAdded';
@@ -45,12 +45,25 @@ const NavCar = ({ isOpen, onClose}) => {
                 }
             </BodyNavCar>
             <FooterNavCar>
-                <span className='totalCount'>
-                    S/. {totalCount}
-                </span>
-                <span className='goPayment'>
-                    Comprar
-                </span>
+
+                {
+                    totalCount === 0 
+                        ? (
+                            <span className='goPayment' onClick={onClose} >
+                                Agregar
+                            </span>
+                        )
+                        : (
+                            <>
+                                <span className='totalCount'>
+                                    S/. {totalCount}
+                                </span>
+                                <span className='goPayment'>
+                                    Comprar
+                                </span>
+                            </>
+                        )
+                }
             </FooterNavCar>
         </ContentNavCar>
     )
