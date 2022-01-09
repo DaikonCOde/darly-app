@@ -4,13 +4,13 @@ import { box } from "../../Styles/GlobalComponents/box";
 export const ContentProducts = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-auto-rows: 230px; 
+    grid-auto-rows: 1fr; 
     grid-gap: 10px;
     margin: 30px 20px;
 `
 
 export const SingleProduct = styled(box)`
-    height: 230px;
+    height: 100%;
     width: 160px;
     max-width: 200px;
     padding: 14px;
@@ -19,13 +19,30 @@ export const SingleProduct = styled(box)`
 
 export const ContentTitle = styled.div`
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    flex-direction: column;
     margin: 0 0 10px 0;
-    & h2 {
+    min-height: 45px;
+    & .titleProduct {
         font-size: 16px;
         font-weight: 600;
+        line-height: 16px;
         color: ${ props => props.theme.colors.gray[90] }
     };
+
+    & .ratingProduct {
+        color: ${ props => props.theme.colors.gray[100] };
+        font-size: 12px;
+        display: block;
+        width: 40px;
+        & span {
+            color: #F8C751;
+            font-size: 15px;
+            line-height: 15px;
+            vertical-align: middle;
+            display: inline-block;
+        }
+    }
 `
 
 export const ContentImage = styled.div`

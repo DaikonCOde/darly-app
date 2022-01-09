@@ -9,7 +9,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { ContentProducts, SingleProduct, ContentTitle, ContentImage, ContentPrice } from './GridProductsStyles'
 
 // Icons
-import { CgShoppingCart } from 'react-icons/cg'
+import { CgShoppingCart } from 'react-icons/cg';
+import { MdStar } from 'react-icons/md';
 
 
 const products = [
@@ -75,7 +76,8 @@ const GridProducts = () => {
                     <SingleProduct key={product.id}>
                         <Link to={`/${product.slug}`}>
                             <ContentTitle>
-                                <h2>{product.title}</h2>
+                                <h2 className='titleProduct'>{product.title}</h2>
+                                <span className='ratingProduct'>{ product.rating } <span><MdStar /></span> </span>
                             </ContentTitle>
                             <ContentImage>
                                 <img src={require(`../../Assets/image/${product.img_url}`)} alt={product.title} />

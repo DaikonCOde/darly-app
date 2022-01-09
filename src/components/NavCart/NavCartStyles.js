@@ -2,12 +2,12 @@ import styled from "styled-components";
 
 export const ContentNavCar = styled.div`
     position: fixed;
+    min-height: 100vh; 
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     background: ${ props => props.theme.colors.gray[10]  };
-    padding: 30px 20px 0;
     z-index: 10;
     transition: all .5s linear;
     transform: ${ props => props.isOpen ? 'translateX(0%)' : 'translateX(100%)'  }; 
@@ -16,6 +16,7 @@ export const ContentNavCar = styled.div`
 export const HeaderNavCar = styled.div`
     width: 100%;
     display: flex;
+    padding: 20px;
     color: ${ props => props.theme.colors.gray[90] };
     & .closeArrow {
         display: block;
@@ -44,6 +45,7 @@ export const HeaderNavCar = styled.div`
 `
 
 export const BodyNavCar = styled.div`
+    padding: 10px;
 `
 export const FooterNavCar = styled.div`
     padding: 20px 30px;

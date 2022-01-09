@@ -4,8 +4,9 @@ import { box } from '../../Styles/GlobalComponents/box'
 export const ContentProductsAdded = styled.ul`
     width: 100%;
     margin: 0;
-    max-height: 400px;
+    max-height: 450px;
     overflow-y: auto;
+    padding: 0 10px 30px;
 `
 
 export const SingleProductAdded = styled(box)`
