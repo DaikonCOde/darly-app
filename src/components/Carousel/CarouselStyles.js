@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const ContentCarousel = styled.div`
     margin: 30px 0px;
     overflow: hidden;
+    position: relative;
 `
 
 export const ItemsCarousel = styled.div`
@@ -25,7 +26,7 @@ export const SingleItemCarousel = styled.div`
     margin: 0 0 0 20px;
     padding: 25px;
     display: flex;
-    &:nth-child(2) {
+    &:nth-child(1) {
         margin-left: 0;
     }
 `
@@ -89,7 +90,7 @@ export const Arrow = styled.div`
     height: 40px;
     background: ${ props => props.theme.colors.gray[30] }80;
     border-radius: 50%;
-    position: sticky;
+    position: absolute;
     top: calc(50% - 30px);
     right: ${ props => props.right ? props.right : '' };
     left: ${ props => props.left ? props.left : '' };
@@ -98,6 +99,7 @@ export const Arrow = styled.div`
     align-items: center;
     font-size: 20px;
     color:  ${ props => props.theme.colors.gray[90] };
+    z-index: 3;
     &::before {
         position: absolute;
         content: '';

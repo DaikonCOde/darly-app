@@ -1,28 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import NavCar from '../NavCart/NavCart'
 
-import { CgMenuLeft, CgShoppingCart } from 'react-icons/cg'
+import ShoppingCart from '../ShoppingCart/ShoppingCart';
 
+// Icons
+import { CgMenuLeft } from 'react-icons/cg'
+
+// Styles
 import { ContentHeader, ContentIcons, ContentLogo } from './HeaderStyles'
 
 const Header = () => {
-
-    const [open, setOpen] = useState(false);
-
-    console.log(open)
 
     return (
         <>
             <ContentHeader  >
                 <ContentIcons ><CgMenuLeft  /></ContentIcons>
                 <ContentLogo > <Link to='/'>Darly Store</Link> </ContentLogo>
-                <ContentIcons align='end' onClick={() => setOpen(true)} ><CgShoppingCart  /></ContentIcons>
+                <ShoppingCart />
             </ContentHeader>
-            <NavCar 
-                isOpen={open}
-                onClose={() => setOpen(false)}
-            />
+
         </>
     )
 }

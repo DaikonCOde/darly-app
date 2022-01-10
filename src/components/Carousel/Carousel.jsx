@@ -97,14 +97,14 @@ const Carousel = () => {
 
     return (
         <ContentCarousel >
+            <Arrow 
+                onClick={ handleSlideArrow  } 
+                left={'10px'}
+                id='arrowLeft'
+            >
+                <CgChevronDoubleLeft />
+            </Arrow>
             <ItemsCarousel position={currentPosition}>
-                <Arrow 
-                    onClick={ handleSlideArrow  } 
-                    left={'10px'}
-                    id='arrowLeft'
-                >
-                    <CgChevronDoubleLeft />
-                </Arrow>
                     {
                         data.map(slide => (
                             <SingleItemCarousel key= {slide.id}>
@@ -119,14 +119,14 @@ const Carousel = () => {
                             </SingleItemCarousel>
                         ))
                     }
-                <Arrow 
-                    onClick={ handleSlideArrow } 
-                    right={'10px'}
-                    id='arrowRight'
-                >
-                    <CgChevronDoubleRight />
-                </Arrow>
             </ItemsCarousel>
+            <Arrow 
+                onClick={ handleSlideArrow } 
+                right={'10px'}
+                id='arrowRight'
+            >
+                <CgChevronDoubleRight />
+            </Arrow>
 
             <ContentPoints>
                 <span onClick={handlePosition} id='0' className='point active' ></span>

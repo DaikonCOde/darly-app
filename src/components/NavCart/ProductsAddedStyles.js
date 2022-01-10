@@ -6,13 +6,14 @@ export const ContentProductsAdded = styled.ul`
     margin: 0;
     max-height: 450px;
     overflow-y: auto;
-    padding: 0 10px 30px;
+    padding: 0 10px 10px;
 `
 
 export const SingleProductAdded = styled(box)`
     padding: 15px 10px;
     display: grid;
-    margin: 15px 0;
+    margin: 15px auto;
+    max-width: 350px;
     grid-template: 105px 30px / 40% 60% ;
 `
 
@@ -52,15 +53,15 @@ export const DescriptionProduct = styled.div`
 
     & .priceProduct {
         color: ${ props => props.theme.colors.gray[90] };
-        font-size: 20px;
+        font-size: 18px;
         font-weight: 600;
         display: block;
         margin: 10px 0 0 0;
         span {
-            font-size: 18px;
+            font-size: 12px;
             text-decoration: line-through;
             color: ${ props => props.theme.colors.gray[40] };
-            display: inline-block;
+            display: block;
             margin: 0 5px 0 0;
         }
     }

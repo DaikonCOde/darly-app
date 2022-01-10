@@ -1,16 +1,6 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
-export const ContentHeader = styled.div`
-    background: ${ props => props.theme.colors.gray[10]};
-    display: grid;
-    grid-template-columns: 50px 1fr 50px;
-    padding: 10px 20px;
-    position: sticky;
-    top: 0;
-    z-index: 9;
-`
-
-export const ContentIcons = styled.div`
+export const ContentShoppingCart = styled.div`
     align-self: center;
     color: ${props => props.theme.colors.gray[90]};
     font-size: 25px;
@@ -41,11 +31,4 @@ export const ContentIcons = styled.div`
         right: 0px;
         font-weight: 600;
     }
-`
-
-export const ContentLogo = styled.div`
-    color: ${props => props.theme.colors.gray[90]};
-    font-size: 28px;
-    font-weight: 600;
-    text-align: center;
 `

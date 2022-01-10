@@ -13,48 +13,10 @@ import { CgShoppingCart } from 'react-icons/cg';
 import { MdStar } from 'react-icons/md';
 
 
-const products = [
-    {
-        title: 'S6 galaxy lite',
-        id: 1,
-        stock: true,
-        price: 455,
-        rating: 4.5,
-        img_url: 'HeadsetImage.png',
-        slug: 's6-galaxy-lite'
-    },
-    {
-        title: 'PS 5 Lite',
-        id: 2,
-        stock: false,
-        price: 499,
-        rating: 4.7,
-        img_url: 'image22.png',
-        slug: 'ps-5-lite'
-    },
-    {
-        title: 'Smarth Watch',
-        id: 3,
-        stock: true,
-        price: 249,
-        rating: 3.5,
-        img_url: 'image22.png',
-        slug: 'smarth-watch'
-    },
-    {
-        title: 'Note Book i7',
-        id: 4,
-        stock: true,
-        price: 1249,
-        rating: 4.9,
-        img_url: 'HeadsetImage.png',
-        slug: 'note-book-i7'
-    },
-]
-
 const GridProducts = () => {
 
     const { productsAdded } = useSelector( (state) => state.addToCart );
+    const { products } = useSelector( (state) => state.listProducts )
 
     const dispatch = useDispatch();
     
@@ -74,7 +36,7 @@ const GridProducts = () => {
             {
                 products.map( (product) => (
                     <SingleProduct key={product.id}>
-                        <Link to={`/${product.slug}`}>
+                        <Link to={`/producto/${product.slug}`}>
                             <ContentTitle>
                                 <h2 className='titleProduct'>{product.title}</h2>
                                 <span className='ratingProduct'>{ product.rating } <span><MdStar /></span> </span>

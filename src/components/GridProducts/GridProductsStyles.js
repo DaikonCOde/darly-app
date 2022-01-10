@@ -6,13 +6,16 @@ export const ContentProducts = styled.div`
     grid-template-columns: 1fr 1fr;
     grid-auto-rows: 1fr; 
     grid-gap: 10px;
-    margin: 30px 20px;
+    margin: 30px auto;
+    padding: 0 20px;
+    max-width: 400px;
 `
 
 export const SingleProduct = styled(box)`
     height: 100%;
-    width: 160px;
-    max-width: 200px;
+    min-width: 135px;
+    width: 100%;
+    max-width: 180px;
     padding: 14px;
     justify-self: center;
 `
@@ -51,6 +54,7 @@ export const ContentImage = styled.div`
     & img {
         object-fit: contain;
         width: 100%;
+        height: 100%;
     }
 `
 
@@ -79,9 +83,9 @@ export const ContentPrice = styled.div`
         padding: 6px;
         border-radius: 4px;
         line-height: 0;
-        transition: all .5s linear;
+        transition: all 1s linear;
         &:active {
-            transform: scale(0.05);
+            transform: scale(0.01);
         }
     }
 
