@@ -86,9 +86,9 @@ export const ButtonsCount = styled(box)`
     height: 30px;
     color: ${ props => props.theme.colors.gray[100] };
     font-weight: 700;
-    transition: all .3s linear;
+    transition: all .5s linear;
     &:active {
-        transform: scale(0.85);
+        transform: scale(0.05);
     }
 `
 

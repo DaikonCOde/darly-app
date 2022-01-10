@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const ContentNavCar = styled.div`
     position: fixed;
-    min-height: 100vh; 
     top: 0;
     right: 0;
     bottom: 0;
@@ -16,7 +15,7 @@ export const ContentNavCar = styled.div`
 export const HeaderNavCar = styled.div`
     width: 100%;
     display: flex;
-    padding: 20px;
+    padding: 15px 20px;
     color: ${ props => props.theme.colors.gray[90] };
     & .closeArrow {
         display: block;
@@ -45,10 +44,10 @@ export const HeaderNavCar = styled.div`
 `
 
 export const BodyNavCar = styled.div`
-    padding: 10px;
+    padding: 0 10px;
 `
 export const FooterNavCar = styled.div`
-    padding: 20px 30px;
+    padding: 15px 20px;
     background: ${ props => props.theme.colors.gray[20] };
     display: flex;
     position: fixed;
@@ -61,7 +60,14 @@ export const FooterNavCar = styled.div`
 
     & .totalCount {
         font-size: 24px;
-        line-height: 50px
+        line-height: 35px;
+        & span {
+            display: block;
+            font-size: 16px;
+            line-height: 16px;
+            font-weight: 500;
+            color: ${ props => props.theme.colors.gray[80] };
+        }
     }
 
     & .goPayment {

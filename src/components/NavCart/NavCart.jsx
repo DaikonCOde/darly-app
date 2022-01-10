@@ -56,6 +56,7 @@ const NavCar = ({ isOpen, onClose}) => {
                         : (
                             <>
                                 <span className='totalCount'>
+                                    <span>Total</span>
                                     S/. {totalCount}
                                 </span>
                                 <span className='goPayment'>
