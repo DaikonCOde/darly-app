@@ -1,4 +1,46 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+
+// animated 
+
+const contentImageEntry = keyframes`
+    0% {
+        height: calc( 100vh + 50px);
+    }
+    50% {
+        height: calc( 100vh + 50px);
+    }
+    100% {
+        height: 70vh
+    }
+`
+const imageEntry = keyframes`
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1);
+        width: 90%;
+    }
+    100% {
+        width: 260px;
+    }
+`
+
+const contentInfoEntry = keyframes`
+    0% {
+        display: none;
+        transform: translate(0, 250px);
+        visibility: hidden;
+    }
+    100% {
+        display: block;
+        transform: translate(0, 0);
+        visibility: show;
+    }
+
+`
+
 
 export const HeaderSingleProduct = styled.header`
     display: flex;
@@ -6,6 +48,7 @@ export const HeaderSingleProduct = styled.header`
     padding: 15px 20px;
     position: fixed;
     top: 0;
+    z-index: 1;
     width: 100%;
 `
 export const ContentArrow = styled.span`
@@ -27,30 +70,42 @@ export const ContentArrow = styled.span`
 
 export const ContentSingleProduct = styled.section`
     width: 100%;
+    max-height: 100vh;
+    overflow: hidden;
+    animation-duration: 4s;
+    background: ${ props => props.theme.colors.gradient };
 `
 
 export const ImageSingleProduct = styled.div`
-    min-height: 60vh;
+    padding: 70px 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: ${ props => props.theme.colors.gradient };
-    position: sticky;
-    z-index: -1;
+    z-index: 0;
     top: 0;
+    animation-duration: 4s;
+    animation-name: ${contentImageEntry}; 
+
     & img {
-        width: 180px;
+        width: 260px;
+        background: #333;
         display: block; 
-        margin: 0 auto
-    }
+        margin: 0 auto;
+        animation-duration: 4s;
+        animation-name: ${imageEntry}
+    };
 `
 
 export const InfoSingleProduct = styled.div`
-    height: 300px;
+    height: 250px;
     margin: -30px 0 0 0;
     background: ${ props => props.theme.colors.gray[10] };
     border-radius: 30px 30px 0 0;
     padding: 30px 20px;
+    z-index: 1;
+    animation-duration: 3s;
+    animation-name: ${contentInfoEntry};
+
     & .titleProduct {
         color: ${ props => props.theme.colors.gray[100] };
         font-size: 24px;
@@ -72,3 +127,4 @@ export const InfoSingleProduct = styled.div`
         }
     }
 `
+

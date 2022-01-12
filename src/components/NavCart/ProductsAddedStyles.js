@@ -6,7 +6,7 @@ export const ContentProductsAdded = styled.ul`
     margin: 0;
     max-height: 450px;
     overflow-y: auto;
-    padding: 0 10px 10px;
+    padding: 0 10px 20px;
 `
 
 export const SingleProductAdded = styled(box)`

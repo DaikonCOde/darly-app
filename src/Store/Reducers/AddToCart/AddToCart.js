@@ -1,10 +1,14 @@
 /*eslint no-unused-expressions: "error"*/
 import { createSlice } from "@reduxjs/toolkit";
 
+const productsAdded = localStorage.getItem('ListProductsAdded') 
+                        ? JSON.parse(localStorage.getItem('ListProductsAdded')) 
+                        : [];
+
 export const AddToCart = createSlice({
     name: "AddToCart",
     initialState: {
-        productsAdded: [],
+        productsAdded,
         totalCount: 0,
     },
     reducers: {
@@ -12,7 +16,8 @@ export const AddToCart = createSlice({
 
             state.productsAdded.push({...action.payload, count: 1});
 
-        },  
+
+        },
         removeProduct: (state, action) => {
 
             const idProduct = action.payload
@@ -53,7 +58,7 @@ export const AddToCart = createSlice({
 
 // Action creators are generated for each case reducer function
 export const { 
-    addProduct, 
+    addProduct,
     removeProduct, 
     incrementCountProduct, 
     decrementCountProduct, 

@@ -17,12 +17,17 @@ const NavCar = ({ isOpen, onClose}) => {
     const dispatch = useDispatch();
 
     const { totalCount } = useSelector( (state) => state.addToCart );
-    const { productsAdded } = useSelector( (state) => state.addToCart )
-    console.log(totalCount)
+    let { productsAdded } = useSelector( (state) => state.addToCart );
+
+
+    // Created local storage
+    if (!localStorage.getItem('ListProductsAdded')) localStorage.setItem('ListProductsAdded', JSON.stringify(productsAdded));
 
     useEffect(() => {
-
+        
         dispatch( updateTotalCount() );
+        localStorage.setItem('ListProductsAdded', JSON.stringify(productsAdded));
+
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [productsAdded])

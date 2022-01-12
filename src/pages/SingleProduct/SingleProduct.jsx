@@ -1,7 +1,6 @@
 import React from 'react'
-import { useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 //  Hooks
+import { useNavigate, useParams } from 'react-router-dom';
 import useSingleProduct from '../../Hooks/useSingleProduct';
 // Conponents
 import ShoppingCart from '../../components/ShoppingCart/ShoppingCart';
@@ -15,15 +14,18 @@ const SingleProduct = () => {
     const {slug} = useParams();
 
     const product = useSingleProduct(slug);
+    const navigate = useNavigate()
+
+    const handlePath = (e) => {
+        navigate(-1)
+    }
 
     return (
         <>
             <HeaderSingleProduct>
-                <Link to='/'>
-                    <ContentArrow>
-                            <CgChevronLeft />
-                    </ContentArrow>
-                </Link>
+                <ContentArrow onClick={handlePath}>
+                        <CgChevronLeft />
+                </ContentArrow>
                 <ShoppingCart />
             </HeaderSingleProduct>
             <ContentSingleProduct>
