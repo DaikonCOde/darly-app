@@ -72,13 +72,5 @@ export const FooterNavCar = styled.div`
 
     & .goPayment {
         padding: 16px 50px;
-        background: ${ props => props.theme.colors.gradient };
-        border-radius: 10px;
-        display: block;
-        text-transform: uppercase;
-        transition: all .3s linear;
-        &:active {
-            transform: scale(0.85);
-        }
     }
 `

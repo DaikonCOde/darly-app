@@ -76,17 +76,9 @@ export const ContentPrice = styled.div`
     }
 
     & .addToCart {
-        color: ${ props => props.theme.colors.gray[90] };
-        font-size: 20px;
-        width: fit-content;
-        background: ${ props => props.theme.colors.gradient };
         padding: 6px;
         border-radius: 4px;
         line-height: 0;
-        transition: all 1s linear;
-        &:active {
-            transform: scale(0.01);
-        }
     }
 
 `

@@ -24,6 +24,11 @@ export const GlobalStyles = createGlobalStyle`
         border: none;
     }
 
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
     .active {
         width: 15px !important;
         height: 15px !important;

@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { updateTotalCount } from '../../Store/Reducers/AddToCart/AddToCart';
 // Styles
 import { ContentNavCar, HeaderNavCar, BodyNavCar, FooterNavCar} from './NavCartStyles'
+import { ButtonGradient } from '../../Styles/GlobalComponents/buttonGradient';
 // Icons
 import { CgChevronRight } from 'react-icons/cg';
 import ProductsAdded from './ProductsAdded';
@@ -54,9 +55,9 @@ const NavCar = ({ isOpen, onClose}) => {
                 {
                     totalCount === 0 
                         ? (
-                            <span className='goPayment' onClick={onClose} >
+                            <ButtonGradient className='goPayment' onClick={onClose} >
                                 Agregar
-                            </span>
+                            </ButtonGradient>
                         )
                         : (
                             <>
@@ -64,9 +65,9 @@ const NavCar = ({ isOpen, onClose}) => {
                                     <span>Total</span>
                                     S/. {totalCount}
                                 </span>
-                                <span className='goPayment'>
+                                <ButtonGradient className='goPayment'>
                                     Comprar
-                                </span>
+                                </ButtonGradient>
                             </>
                         )
                 }

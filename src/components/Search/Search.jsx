@@ -1,19 +1,20 @@
 import React from 'react'
 import { CgSearch } from 'react-icons/cg';
 
-import { ContentSearch, TitleSearch, ContentForm, ContentIcon, Form } from './SearchStyles';
+import { ContentSearch, TitleSearch, ContentForm } from './SearchStyles';
+import { FormIcon, FormInput } from '../../Styles/GlobalComponents/contentInput';
 
 const Search = () => {
     return (
         <ContentSearch>
             <TitleSearch>Los mejores precios</TitleSearch>
             <ContentForm>
-                <ContentIcon>
+                <FormIcon>
                     <CgSearch />
-                </ContentIcon>
-                <Form >
+                </FormIcon>
+                <FormInput >
                     <input type='text' placeholder='¿Qué estas buscando?'/>
-                </Form>
+                </FormInput>
             </ContentForm>
         </ContentSearch>
     )

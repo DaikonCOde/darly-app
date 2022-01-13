@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { box } from '../../Styles/GlobalComponents/box'
+import { ContentInput } from '../../Styles/GlobalComponents/contentInput'
 
 export const ContentSearch = styled.div`
     margin: 0 20px;
@@ -13,12 +13,8 @@ export const TitleSearch = styled.h4`
     text-transform: capitalize;
 `
 
-export const ContentForm = styled(box)`
-    display: flex;
-    flex-direction: row;
+export const ContentForm = styled(ContentInput)`
     margin: 20px 0 0;
-    padding: 14px 16px;
-    width: 100%;
 `
 
 export const ContentIcon = styled.div`
@@ -29,14 +25,14 @@ export const ContentIcon = styled.div`
 `
 
 export const Form = styled.form`
-    & {
-        input[type=text] {
-            background: none; 
-            border: none;
-            color: ${props => props.theme.colors.gray[70]};
-            font-size: 16px;
-            height: 25px;
-            outline: none;
-        }
+
+    input[type=text] {
+        background: none; 
+        border: none;
+        color: ${props => props.theme.colors.gray[70]};
+        font-size: 16px;
+        height: 25px;
+        outline: none;
     }
+
 `

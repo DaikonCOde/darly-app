@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 // Styles
 import { ContentProducts, SingleProduct, ContentTitle, ContentImage, ContentPrice } from './GridProductsStyles'
+import { ButtonGradient } from '../../Styles/GlobalComponents/buttonGradient';
 
 // Icons
 import { CgShoppingCart } from 'react-icons/cg';
@@ -50,9 +51,9 @@ const GridProducts = () => {
                                     <span className='priceTotal'>S/. {((product.price * 100) / 75).toFixed(2) }</span>
                                     <span className='priceDesc' >S/. {product.price}</span>
                                 </div>
-                                <button type='button' className='addToCart' onClick={ () => submitProductCar(product.id) } >
+                                <ButtonGradient type='button' className='addToCart' onClick={ () => submitProductCar(product.id) } >
                                     <CgShoppingCart />
-                                </button>
+                                </ButtonGradient>
                             </ContentPrice>
                     </SingleProduct>
                 ) )
