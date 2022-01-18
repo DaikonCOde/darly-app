@@ -19,7 +19,7 @@ export const FormInput = styled.div`
     margin: 0 0 0 10px;
     width: 100%;
     input {
-        width: 100%;
+        width: 90%;
         background: none; 
         border: none;
         color: ${props => props.theme.colors.gray[70]};
@@ -27,5 +27,10 @@ export const FormInput = styled.div`
         height: 25px;
         outline: none;
     }
-
+    .changeVisibility {
+        width: 16px;
+        font-size: 16px;
+        color: ${ props => props.theme.colors.gray[70] };
+        vertical-align: middle;
+    }
 `

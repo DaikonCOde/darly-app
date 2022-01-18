@@ -35,9 +35,13 @@ export const ContentNavMenu = styled.div`
         margin: 30px 0 0;
         .item {
             color: ${ props => props.theme.colors.gray[100] };
-            font-size: 18px;
+            font-size: 16px;
             margin: 15px 0;
-
+            .signOut {
+                font-size: 16px;
+                text-transform: none;
+                padding: 14px 16px;
+            }
         }
     }
 

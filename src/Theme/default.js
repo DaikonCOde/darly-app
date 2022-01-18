@@ -5,6 +5,7 @@ export default {
         'yellow': '#F7C651',
         'white': '#ffffff', 
         'gradient': 'linear-gradient(337.28deg, #3B43C9 4.24%, #4FBEE3 93.45%)',
+        'warning': '#E60965',
         'gray': {
         10: '#1F1F1F',
         20: '#262626',

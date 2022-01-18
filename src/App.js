@@ -1,4 +1,10 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import { auth } from './db/connect';
+import { onAuthStateChanged } from 'firebase/auth';
+
+import { signInUser } from './Store/Reducers/Users/Users';
+import { useDispatch } from 'react-redux';
 // Pages
 import Home from './pages/Home/Home'
 import SingleProduct from './pages/SingleProduct/SingleProduct';
@@ -7,6 +13,18 @@ import Login from './pages/Login/Login';
 import Theme from './Styles/theme';
 
 const App = () => {
+
+  const dispatch = useDispatch()
+
+  onAuthStateChanged(auth, (user ) => {
+    if(user) {
+      dispatch( signInUser(true) );
+    } else {
+      dispatch( signInUser(false) );
+    }
+
+  })
+
   return (
     <BrowserRouter> 
       <Theme>

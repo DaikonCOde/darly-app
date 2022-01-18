@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ContentLogin = styled.section`
     background: ${ props => props.theme.colors.gray[10] };
-    padding: 40px 20px;
+    padding: 20px 20px;
     height: 100vh;
 `
 
@@ -38,11 +38,35 @@ export const ContentBrand = styled.div`
     } 
 `
 export const ContentForm = styled.form`
-    margin: 40px 0 0;
+    margin: 40px auto 0;
+    max-width:400px;
+
     & .buttonSubmitForm {
         width: 100%;
         padding: 16px 0;
         line-height: 25px;
         margin: 30px 0 0;
+    }
+    .alreadyRegistered, .signIn {
+        display: block;
+        text-align: center;
+        color: ${ props => props.theme.colors.gray[80] };
+        margin: 20px 0 0 0 ;
+    }
+    .google {
+        margin: 40px 0 0 0;
+    }
+    .signIn {
+        color: ${ props => props.theme.colors.gray[100] };
+        span {
+            display: inline-block;
+            vertical-align: middle;
+            width: 30px;
+            height: 30px;
+            margin: 0 10px 0 0;
+        }
+    }
+    .signInFailed { 
+        color: ${ props => props.theme.colors.warning}
     }
 `
