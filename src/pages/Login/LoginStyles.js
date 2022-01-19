@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const ContentLogin = styled.section`
     background: ${ props => props.theme.colors.gray[10] };
     padding: 20px 20px;
-    height: 100vh;
+    height: 100%;
+    min-height: 100vh;
 `
 
 export const HeaderLogin = styled.div`
@@ -47,7 +48,7 @@ export const ContentForm = styled.form`
         line-height: 25px;
         margin: 30px 0 0;
     }
-    .alreadyRegistered, .signIn {
+    .alreadyRegistered, .signIn, .signInFailed {
         display: block;
         text-align: center;
         color: ${ props => props.theme.colors.gray[80] };

@@ -4,9 +4,11 @@ import { useNavigate } from 'react-router-dom';
 // db
 import { auth } from '../../db/connect';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { doc, setDoc } from 'firebase/firestore';
+import { DBfirestore } from '../../db/connect';
 // Icons
 import { CgChevronLeft, CgMail, CgLock } from 'react-icons/cg';
-import { MdVisibility, MdVisibilityOff } from 'react-icons/md';
+import { MdVisibility, MdVisibilityOff, MdPersonOutline } from 'react-icons/md';
 // Styles 
 import { HeaderLogin, BodyLogin, ContentLogin, ContentBrand, ContentForm } from './LoginStyles';
 import { ContentInput, FormIcon, FormInput } from '../../Styles/GlobalComponents/contentInput';
@@ -25,10 +27,6 @@ const Login = () => {
         error: null,
         success: null,
     });
-    const [ form, setForm ] = useState({
-        email: '',
-        password: '',
-    })
     
     const handlePathLogin = () => {
         navigate(-1, { replace: false})
@@ -36,16 +34,18 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        const email = e.target.elements.email.value;
+        const password = e.target.elements.password.value;
+        const name = e.target.elements.name.value;
+
 
         setStateForm({ ...stateForm, loading: true })
 
         if(!alreadyRegistered) {
             try {
-                const newUser = await createUserWithEmailAndPassword(auth, form.email, form.password)
-                console.log(newUser)
-                setStateForm({ error: null, success: true,  loading: false })
-                navigate('/', { replace: true })
+                const { user } = await createUserWithEmailAndPassword(auth, email, password)
 
+                return createNewUser(user, name ,email) 
             } catch (error) {
                 setStateForm({ error: error, success: false,  loading: false })
                 
@@ -53,7 +53,7 @@ const Login = () => {
             
         } else {
             try {
-                const singIn = await signInWithEmailAndPassword(auth, form.email, form.password);
+                const singIn = await signInWithEmailAndPassword(auth, email, password);
                 console.log(singIn);
                 setStateForm({ error: null, success: true,  loading: false })
                 
@@ -67,18 +67,19 @@ const Login = () => {
     }
 
     const signInWithGoogle = async () => {
-        await signInWithPopup(auth, googleProvider);
-        navigate('/', { replace: true });
+        const { user } = await signInWithPopup(auth, googleProvider);
+
+        return createNewUser(user, user.displayName, user.email)
     }
 
-    const handleInputChange = (e) => {
-        const {name, value} = e.target;
+    const createNewUser = async (user, name, email) => {
 
-        setForm( (form) => ( {
-            ...form ,
-            [ name ] :  value,
-        }))
+        const docRefUser = await doc(DBfirestore, `users/${user.uid}`);
+                
+        setDoc(docRefUser, { name: name, email: email, rol: 'client' });
 
+        setStateForm({ error: null, success: true,  loading: false })
+        navigate('/', { replace: true })
     }
 
     return (
@@ -92,19 +93,36 @@ const Login = () => {
                     <span>{ alreadyRegistered ? 'Inicia Sesión' : 'Regístrate'  }</span>
                 </ContentBrand>
 
-                <ContentForm onSubmit={handleSubmit} > 
+                <ContentForm onSubmit={handleSubmit} >
+                    {
+                        !alreadyRegistered 
+                            ? <ContentInput>
+                                <FormIcon>
+                                    <MdPersonOutline />
+                                </FormIcon>
+                                <FormInput>
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        id="name"
+                                        placeholder='Nombre'
+                                        required
+                                    />
+                                </FormInput>
+                            </ContentInput>
+                            : null
+                    }
                     <ContentInput>
                         <FormIcon>
                             <CgMail />
                         </FormIcon>
                         <FormInput>
                             <input
-                                value= {form.email}
                                 type="email"
                                 name="email"
                                 id="email"
                                 placeholder='Email'
-                                onChange={handleInputChange}
+                                required
                             />
                         </FormInput>
                     </ContentInput>
@@ -114,12 +132,12 @@ const Login = () => {
                         </FormIcon>
                         <FormInput>
                             <input 
-                                value= {form.password}
+                                
                                 type={ visible ? 'text' : 'password' } 
                                 name="password"
                                 id="password"
                                 placeholder='Contraseña'
-                                onChange={handleInputChange}
+                                required
                             />
                             <span onClick={ () => setVisible(!visible) } className='changeVisibility' >
                                 { 

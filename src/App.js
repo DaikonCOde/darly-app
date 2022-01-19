@@ -2,6 +2,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { auth } from './db/connect';
 import { onAuthStateChanged } from 'firebase/auth';
+import { doc, getDoc } from 'firebase/firestore';
+import { DBfirestore } from './db/connect';
 
 import { signInUser } from './Store/Reducers/Users/Users';
 import { useDispatch } from 'react-redux';
@@ -16,11 +18,13 @@ const App = () => {
 
   const dispatch = useDispatch()
 
-  onAuthStateChanged(auth, (user ) => {
+  onAuthStateChanged(auth, async (user ) => {
     if(user) {
-      dispatch( signInUser(true) );
+      const getInfoUser = await getDoc( doc(DBfirestore, `users`, user.uid) )
+
+      dispatch( signInUser(getInfoUser.data()) );
     } else {
-      dispatch( signInUser(false) );
+      dispatch( signInUser(null) );
     }
 
   })
