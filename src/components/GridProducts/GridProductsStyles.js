@@ -9,6 +9,7 @@ export const ContentProducts = styled.div`
     margin: 30px auto;
     padding: 0 20px;
     max-width: 400px;
+    position: relative;
 `
 
 export const SingleProduct = styled(box)`

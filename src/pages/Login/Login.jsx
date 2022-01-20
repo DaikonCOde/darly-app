@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
+import Loading from '../../components/Loading/Loading'
+
 // db
 import { auth } from '../../db/connect';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
-import { doc, setDoc } from 'firebase/firestore';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { DBfirestore } from '../../db/connect';
 // Icons
 import { CgChevronLeft, CgMail, CgLock } from 'react-icons/cg';
@@ -38,10 +40,10 @@ const Login = () => {
         const password = e.target.elements.password.value;
         const name = e.target.elements.name.value;
 
-
         setStateForm({ ...stateForm, loading: true })
 
         if(!alreadyRegistered) {
+            // register user
             try {
                 const { user } = await createUserWithEmailAndPassword(auth, email, password)
 
@@ -52,9 +54,9 @@ const Login = () => {
             }
             
         } else {
+            // sign in user
             try {
-                const singIn = await signInWithEmailAndPassword(auth, email, password);
-                console.log(singIn);
+                await signInWithEmailAndPassword(auth, email, password);
                 setStateForm({ error: null, success: true,  loading: false })
                 
                 navigate('/', { replace: true })
@@ -67,6 +69,7 @@ const Login = () => {
     }
 
     const signInWithGoogle = async () => {
+        setStateForm({ ...stateForm, loading: true })
         const { user } = await signInWithPopup(auth, googleProvider);
 
         return createNewUser(user, user.displayName, user.email)
@@ -75,15 +78,24 @@ const Login = () => {
     const createNewUser = async (user, name, email) => {
 
         const docRefUser = await doc(DBfirestore, `users/${user.uid}`);
-                
-        setDoc(docRefUser, { name: name, email: email, rol: 'client' });
+        const getDocUser = await getDoc(docRefUser);
 
-        setStateForm({ error: null, success: true,  loading: false })
-        navigate('/', { replace: true })
+        if ( getDocUser.exists() ) {
+            setStateForm({ error: null, success: true,  loading: false })
+            navigate('/', { replace: true });
+            return;
+        }
+        
+        await setDoc(docRefUser, { name: name, email: email, rol: 'client' });
+        setStateForm({ error: null, success: true,  loading: false });
+        navigate('/', { replace: true });
     }
 
     return (
         <ContentLogin>
+            {
+                stateForm.loading && <Loading />
+            }
             <HeaderLogin>
                 <h2>Darly Store</h2>
                 <CgChevronLeft onClick={ handlePathLogin }/>

@@ -44,8 +44,8 @@ export const ContentIcons = styled.div`
 `
 
 export const ContentLogo = styled.div`
-    color: ${props => props.theme.colors.gray[90]};
-    font-size: 28px;
+    color: ${props => props.theme.colors.gray[100]};
+    font-size: 25px;
     font-weight: 600;
     text-align: center;
 `

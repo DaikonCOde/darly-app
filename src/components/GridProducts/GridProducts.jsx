@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom' 
 
+import Loading from '../../components/Loading/Loading';
 // Reducers
 import { addProduct, incrementCountProduct } from '../../Store/Reducers/AddToCart/AddToCart';
 import { useSelector, useDispatch } from 'react-redux';
@@ -26,16 +27,19 @@ const GridProducts = () => {
         const productToBeAdded = products.filter( (product) => product.id === id  );
     
         const filterProductos = productsAdded.find(product => product.id === id);
-        
+
         filterProductos === undefined
             ? dispatch( addProduct(...productToBeAdded) )
             : dispatch( incrementCountProduct(id) )
     }
 
+
     return (
         <ContentProducts>
             {
-                products.map( (product) => (
+                products.length <= 0 
+                ? <Loading />
+                : products.map( (product) => (
                     <SingleProduct key={product.id}>
                         <Link to={`/producto/${product.slug}`}>
                             <ContentTitle>

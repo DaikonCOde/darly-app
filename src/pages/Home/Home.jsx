@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 // DB
-// import { DBfirestore  } from '../../db/connect';
-// import {  getDocs, collection} from 'firebase/firestore';
+import { updateListProducts } from '../../Store/Reducers/ListProducts/ListProducts';
+import { useDispatch, useSelector } from 'react-redux';
+import { getProducts } from '../../Helpers/getProducts';
 
 // Components
 import Search from '../../components/Search/Search';
@@ -16,19 +17,23 @@ import { ContentHome } from './HomeStyles';
 
 const Home =  () => {
 
-    
-    // useEffect( () =>{
-    //     const getData = async () => {
-    //         const listProducts = await getDocs(collection(DBfirestore, 'products'));
-    //         listProducts.forEach((doc) => {
-    //             const product = doc.data()
-    //             console.log(`${doc.id } : ${(product.name)} ${(product.precio)}`);
-    //         })
-    //     }
-        
-    //     getData();
+    const dispatch = useDispatch();
+    const { products } = useSelector(state => state.listProducts)
 
-    // }, [])
+    useEffect( () => {
+        
+        const data = async () => {
+            const listProducts =  await getProducts();
+            
+            if (listProducts.length === products.length) return null;
+
+            dispatch( updateListProducts(listProducts) );
+
+        }
+
+        data()
+    
+    }, [dispatch, products] ) 
 
     return (
         <>
