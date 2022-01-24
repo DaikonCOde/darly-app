@@ -24,12 +24,12 @@ const ProductsAdded = ({ products }) => {
                 products.map( (product) => (
                     <SingleProductAdded as='li' key={product.id}>
                         <ImageProduct>
-                            <img className='imageProduct' src={require(`../../Assets/image/${product.img_url}`)} alt={product.title} />
+                            <img className='imageProduct' src={product.img_url} alt={product.title} />
                         </ImageProduct>
                         <DescriptionProduct>
                             <h3 className='titleProduct'>{product.title}</h3>
                             <span className='ratingProduct'>{product.rating} <span><MdStar /></span></span>
-                            <span className='priceProduct' ><span>S/. {((product.price * 100) / 75).toFixed(2) }</span>S/. {product.price} </span>
+                            <span className='priceProduct' ><span>S/. {product.price}</span>S/. {product.price} </span>
                         </DescriptionProduct>
                         <CountProduct>
                             <ButtonsCount as='button' type='button' onClick={() => dispatch(decrementCountProduct(product.id)) } > - </ButtonsCount>

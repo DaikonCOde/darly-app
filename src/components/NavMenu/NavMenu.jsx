@@ -21,11 +21,18 @@ const NavMenu = ( { isOpen, setOpen } ) => {
             <ul className='listMenu'>
                 { currentUser 
                     ? (
-                        <li className='item'>
-                            <ButtonGradient className='signOut' onClick={() => signOut(auth)} >
-                                Cerrar Sesión
-                            </ButtonGradient>
-                        </li>
+                        <>
+                            <li className='item'>
+                                <Link to='/dashboard' >
+                                    Dashboard
+                                </Link>
+                            </li>
+                            <li className='item'>
+                                <ButtonGradient className='signOut' onClick={() => signOut(auth)} >
+                                    Cerrar Sesión
+                                </ButtonGradient>
+                            </li>
+                        </>
                     )
                     : (
                         <li className='item'>

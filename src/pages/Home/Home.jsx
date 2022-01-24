@@ -28,7 +28,7 @@ const Home =  () => {
             if (listProducts.length === products.length) return null;
 
             dispatch( updateListProducts(listProducts) );
-
+            console.log(listProducts)
         }
 
         data()

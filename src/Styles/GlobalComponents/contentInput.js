@@ -18,7 +18,7 @@ export const FormIcon = styled.div`
 export const FormInput = styled.div`
     margin: 0 0 0 10px;
     width: 100%;
-    input {
+    input, textarea {
         width: 90%;
         background: none; 
         border: none;

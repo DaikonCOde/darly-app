@@ -5,7 +5,7 @@ import { box } from './box'
 export const ButtonGradient = styled.button`
     color: ${ props => props.theme.colors.gray[90] };
     font-weight: 600;
-    font-size: 20px;
+    font-size: 18px;
     background: ${props => props.theme.colors.gradient};
     border-radius: 10px;
     display: block;
@@ -13,6 +13,11 @@ export const ButtonGradient = styled.button`
     transition: all .3s linear;
     width: fit-content;
     line-height: 20px;
+    padding: 10px 20px;
+    
+    &:hover {
+        transform: scale(0.85);
+    }
     &:active {
         transform: scale(0.85);
     }
@@ -25,5 +30,5 @@ export const ButtonBorder = styled(box)`
     color: ${ props => props.theme.colors.gray[90] };
     font-weight: 600;
     margin: 0 5px;
-
+    
 `
