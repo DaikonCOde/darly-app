@@ -40,6 +40,7 @@ const SingleProduct =  () => {
         getData()
         console.log(product)
         
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [ id ]);
 
     const handlePath = (e) => {
