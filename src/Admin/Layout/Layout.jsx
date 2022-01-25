@@ -2,7 +2,6 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 
 import { useSelector } from "react-redux";
-import { Navigate } from "react-router-dom";
 import NavAdminMenu from "../Components/NavAdminMenu/NavAdminMenu";
 
 import { ContentDashboardLayout } from "./LayoutStyles";
