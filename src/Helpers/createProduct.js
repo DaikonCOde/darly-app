@@ -1,9 +1,9 @@
 import {
-  collection,
-  getDocs,
+  // collection,
+  // getDocs,
   setDoc,
-  updateDoc,
-  deleteDoc,
+  // updateDoc,
+  // deleteDoc,
   doc,
 } from "firebase/firestore";
 
@@ -11,7 +11,7 @@ import { DBfirestore } from "../db/connect";
 
 export const createProduct = async (data) => {
 
-  const slug = data.title.toLowerCase().replaceAll(' ', '-');
+  const slug = data.title.toLowerCase().replace(/['"/ ] +/g, '-');
 
   const refProducts = doc(DBfirestore, `products/${slug}`);
   try {

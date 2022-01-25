@@ -31,6 +31,13 @@ export const ContentTitle = styled.div`
         font-size: 16px;
         font-weight: 600;
         line-height: 16px;
+        width: 135px;
+        overflow:hidden;
+        word-break: break-all;  
+        text-overflow:ellipsis;
+        display:-webkit-box; 
+        -webkit-box-orient:vertical;
+        -webkit-line-clamp:2; 
         color: ${ props => props.theme.colors.gray[90] }
     };
 
@@ -62,7 +69,7 @@ export const ContentImage = styled.div`
 export const ContentPrice = styled.div`
     display: flex;
     justify-content: space-between;
-    
+    margin: 10px 0 0 0;
     & .priceTotal {
         font-size: 12px;
         text-decoration: line-through;

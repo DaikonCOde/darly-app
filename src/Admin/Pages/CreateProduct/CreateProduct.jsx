@@ -50,8 +50,10 @@ const CreateProduct = () => {
       rating: e.target.elements.rating.value,
       stock: e.target.elements.stock.value,
       img_url: urlImagePort,
-      gallery_url: urlImageGallery,
+      gallery_url: [ ...urlImagePort, ...urlImageGallery ],
     }
+    console.log(data.img_url)
+    console.log(data.gallery_url);
 
     createProduct(data)
       .then(() => {
@@ -79,19 +81,19 @@ const CreateProduct = () => {
         <ContentInput className='price'>
           <InputAndLabel>
             <label htmlFor="price">Price</label>
-            <input type="number" name="price" id='price' placeholder="Price" required/>
+            <input type="number" name="price" step="0.01" id='price' placeholder="Price" required/>
           </InputAndLabel>
         </ContentInput>
         <ContentInput className='totalPrice'>
           <InputAndLabel>
             <label htmlFor="totalPrice">total Price</label>
-            <input type="number" name="totalPrice" id='totalPrice' placeholder="Total Price" required/>
+            <input type="number" name="totalPrice" step="0.01" id='totalPrice' placeholder="Total Price" required/>
           </InputAndLabel>
         </ContentInput>
         <ContentInput className='rating' >
           <InputAndLabel>
             <label htmlFor="rating">Rating</label>
-            <input type="number" name="rating" id='rating' placeholder="Rating" required/>
+            <input type="number" name="rating" step="0.01" id='rating' placeholder="Rating" required/>
           </InputAndLabel>
         </ContentInput>
         <ContentInput className='stock'>

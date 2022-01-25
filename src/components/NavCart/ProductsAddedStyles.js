@@ -14,7 +14,7 @@ export const SingleProductAdded = styled(box)`
     display: grid;
     margin: 15px auto;
     max-width: 350px;
-    grid-template: 105px 30px / 40% 60% ;
+    grid-template: 105px 30px / 100px 1fr ;
 `
 
 export const ImageProduct = styled.div`
@@ -34,13 +34,19 @@ export const DescriptionProduct = styled.div`
         color: ${ props => props.theme.colors.gray[100] };
         font-size: 18px;
         font-weight: 600;
+        width: 135px;
+        overflow:hidden;
+        word-break: break-all;  
+        text-overflow:ellipsis;
+        display:-webkit-box; 
+        -webkit-box-orient:vertical;
+        -webkit-line-clamp:2; 
     }
 
     & .ratingProduct {
         color: ${ props => props.theme.colors.gray[100] };
         font-size: 12px;
         display: block;
-        margin: 10px 0 0 0;
         span {
             color: #F8C751;
             font-size: 15px;
@@ -56,7 +62,7 @@ export const DescriptionProduct = styled.div`
         font-size: 18px;
         font-weight: 600;
         display: block;
-        margin: 10px 0 0 0;
+        margin: 5px 0 0 0;
         span {
             font-size: 12px;
             text-decoration: line-through;
@@ -72,7 +78,7 @@ export const CountProduct = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: center;
-
+    margin: 5px 0 0 0;
     & .count {
         color: ${ props => props.theme.colors.gray[100] };
         font-weight: 700;
