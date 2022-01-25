@@ -10,7 +10,7 @@ const NavAdminMenu = (  ) => {
   return (
     <>
       <ContentNavAdminMenu>
-        <Brand>Darly Store</Brand>
+        <Brand> <Link to='/'>Darly Store</Link> </Brand>
         <ContentNavItems>
           <ul>
             <li className="navItem" >
