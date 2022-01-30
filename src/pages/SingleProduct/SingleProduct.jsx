@@ -3,18 +3,22 @@ import React, { useLayoutEffect, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import GetSingleProduct from '../../Helpers/getSingleProduct';
+import { AddProductCart } from '../../Helpers/AddProductCart';
 // Conponents
 import ShoppingCart from '../../components/ShoppingCart/ShoppingCart';
 import Loading from '../../components/Loading/Loading';
+
 // Icons
 import { CgChevronLeft } from 'react-icons/cg';
 
 // Styles
-import { HeaderSingleProduct, ContentArrow,  ContentSingleProduct, ImageSingleProduct, InfoSingleProduct, ContentCarouselImage } from './SingleProductStyles';
+import { HeaderSingleProduct, ContentArrow,  ContentSingleProduct, ImageSingleProduct, InfoSingleProduct, ContentCarouselImage, ContentButtons } from './SingleProductStyles';
 
+import { ButtonGradient,ButtonBorder } from '../../Styles/GlobalComponents/buttonGradient';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation  } from 'swiper';
+
 
 // Import Swiper styles
 import 'swiper/css';
@@ -27,6 +31,7 @@ const SingleProduct =  () => {
     const [ loading, setLoading ] = useState(true);
     const [ product, setProduct ] = useState({});
     const navigate = useNavigate()
+    const [ submitProductCart ] = AddProductCart();
 
     useLayoutEffect( () => { 
         window.scrollTo(0, 0);
@@ -73,8 +78,10 @@ const SingleProduct =  () => {
                                 <Swiper
                                 // install Swiper modules
                                 modules={[Navigation ]}
-                                spaceBetween={50}
+                                spaceBetween={30}
                                 slidesPerView={1}
+                                loop={true}
+                                loopFillGroupWithBlank={true}
                                 navigation={true}   
                                 onSwiper={(swiper) => console.log(swiper)}
                                 onSlideChange={() => console.log('slide change')}
@@ -97,9 +104,14 @@ const SingleProduct =  () => {
                             <h3 className='titleProduct'>
                                 { product.title }
                             </h3>
-                            <span className='priceProduct' >S/. { product.price.toFixed(2) }</span>
+                            <span className='priceProduct' ><span>S/. {product.totalPrice}</span> S/. { product.price.toFixed(2) } </span>
                             <p  className='description'> { product.description } </p>
+
                         </InfoSingleProduct>
+                            <ContentButtons>
+                                <ButtonGradient>Comprar</ButtonGradient>
+                                <ButtonBorder className='button-border'  onClick={ () => submitProductCart(product.id) } >Agregar la carrito</ButtonBorder>
+                            </ContentButtons>
                     </ContentSingleProduct>
                 )
             }

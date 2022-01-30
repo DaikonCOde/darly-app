@@ -38,7 +38,23 @@ const contentInfoEntry = keyframes`
         transform: translate(0, 0);
         visibility: show;
     }
-
+`
+const contentBtns = keyframes`
+    0% {
+        display: none;
+        transform: translate(0, 100%);
+        visibility: hidden;
+    }
+    90% {
+        display: none;
+        transform: translate(0, 100%);
+        visibility: hidden;
+    }
+    100% {
+        display: block;
+        transform: translate(0, 0);
+        visibility: show;
+    }
 `
 
 
@@ -111,10 +127,10 @@ export const ContentCarouselImage = styled.div`
 
 
 export const InfoSingleProduct = styled.div`
-    height: 300px;
+    height: 100%;
     background: ${ props => props.theme.colors.gray[10] };
     border-radius: 30px 30px 0 0;
-    padding: 30px 20px 500px;
+    padding: 30px 20px;
     position: relative;
     z-index: 1;
     animation-duration: 3s;
@@ -122,34 +138,49 @@ export const InfoSingleProduct = styled.div`
 
     & .titleProduct {
         color: ${ props => props.theme.colors.gray[100] };
-        font-size: 24px;
+        font-size: 20px;
         font-weight: 600;
     }
 
     & .priceProduct {
         color: ${ props => props.theme.colors.gray[90] };
         font-size: 18px;
-        font-weight: 600;
+        font-weight: 700;
         display: block;
         margin: 10px 0 0 0;
         span {
-            font-size: 12px;
+            font-weight: 500;
+            font-size: 14px;
             text-decoration: line-through;
             color: ${ props => props.theme.colors.gray[40] };
-            display: block;
+            display: inline-block;
             margin: 0 5px 0 0;
         }
     }
+
+    & .description {
+        font-size: 16px;
+        color: ${ props => props.theme.colors.gray[90]};
+        line-height: 26px;
+        margin: 20px 0 0 0
+    }
 `
 
-export const ContentArrows = styled.div`
-
-`
-
-export const ArrowLeft = styled.div`
-
-`
-
-export const ArrowRight= styled.div`
-
+export const ContentButtons = styled.div`
+    position: sticky;
+    background-color: ${ props => props.theme.colors.gray[10]};
+    padding: 20px;
+    bottom: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: space-around;
+    z-index: 8;
+    animation-name: ${ contentBtns };
+    animation-duration: 4s;
+    .button-border {
+        transition: all .3s linear;
+        &:active {
+            transform: scale(0.85);
+        }
+    }
 `

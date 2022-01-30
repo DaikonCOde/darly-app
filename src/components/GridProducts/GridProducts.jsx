@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom'
 
 import Loading from '../../components/Loading/Loading';
 // Reducers
-import { addProduct, incrementCountProduct } from '../../Store/Reducers/AddToCart/AddToCart';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector} from 'react-redux';
 
 // Styles
 import { ContentProducts, SingleProduct, ContentTitle, ContentImage, ContentPrice } from './GridProductsStyles'
@@ -15,24 +14,13 @@ import { CgShoppingCart } from 'react-icons/cg';
 import { MdStar } from 'react-icons/md';
 
 
+import { AddProductCart } from '../../Helpers/AddProductCart';
+
 const GridProducts = () => {
 
-    const { productsAdded } = useSelector( (state) => state.addToCart );
+    const [ submitProductCart ] = AddProductCart()
+
     const { products } = useSelector( (state) => state.listProducts )
-
-    const dispatch = useDispatch();
-    
-    const submitProductCar = (id) => {
-
-        const productToBeAdded = products.filter( (product) => product.id === id  );
-    
-        const filterProductos = productsAdded.find(product => product.id === id);
-
-        filterProductos === undefined
-            ? dispatch( addProduct(...productToBeAdded) )
-            : dispatch( incrementCountProduct(id) )
-    }
-
 
     return (
         <ContentProducts>
@@ -55,7 +43,7 @@ const GridProducts = () => {
                                     <span className='priceTotal'>S/. {product.totalPrice.toFixed(2)  }</span>
                                     <span className='priceDesc' >S/. {product.price.toFixed(2)}</span>
                                 </div>
-                                <ButtonGradient type='button' className='addToCart' onClick={ () => submitProductCar(product.id) } >
+                                <ButtonGradient type='button' className='addToCart' onClick={ () => submitProductCart(product.id) } >
                                     <CgShoppingCart />
                                 </ButtonGradient>
                             </ContentPrice>
