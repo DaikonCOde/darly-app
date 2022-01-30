@@ -5,13 +5,13 @@ import styled, { keyframes } from "styled-components";
 
 const contentImageEntry = keyframes`
     0% {
-        height: calc( 100vh + 50px);
+        height: 100vh ;
     }
     50% {
-        height: calc( 100vh + 50px);
+        height: 100vh;
     }
     100% {
-        height: 70vh
+        height: 55vh
     }
 `
 const imageEntry = keyframes`
@@ -20,10 +20,10 @@ const imageEntry = keyframes`
     }
     50% {
         transform: scale(1);
-        width: 90%;
+        width: 80%;
     }
     100% {
-        width: 260px;
+        width: 28s0px;
     }
 `
 
@@ -40,16 +40,6 @@ const contentInfoEntry = keyframes`
     }
 
 `
-
-// const contentSingle = keyframes`
-//     from {
-//         overflow-y: hidden;
-//     }
-
-//     to {
-//         overflow-y: auto;
-//     }
-// `
 
 
 export const HeaderSingleProduct = styled.header`
@@ -84,10 +74,11 @@ export const ContentSingleProduct = styled.section`
     overflow-y: auto;
     animation-duration: 4s;
     background: ${ props => props.theme.colors.gradient };
+    padding: 50px 0 0 0;
 `
 
 export const ImageSingleProduct = styled.div`
-    height: 70vh;
+    height: 55vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -95,20 +86,32 @@ export const ImageSingleProduct = styled.div`
     z-index: 0;
     top: 0;
     animation-duration: 4s;
-    animation-name: ${contentImageEntry}; 
+    animation-name: ${contentImageEntry};
 
     & img {
-        width: 260px;
+        width: 280px;
         display: block; 
         margin: 0 auto;
         animation-duration: 4s;
         animation-name: ${imageEntry}
     };
 `
+export const ContentCarouselImage = styled.div`
+    display: flex;
+    flex-direction: row;
+    width: 320px;
+    overflow: hidden;
+
+    .itemCarousel {
+        min-width: 320px;
+        justify-self: center;
+        align-self: center;
+    }
+`
+
 
 export const InfoSingleProduct = styled.div`
-    height: 250px;
-    margin: -30px 0 0 0;
+    height: 300px;
     background: ${ props => props.theme.colors.gray[10] };
     border-radius: 30px 30px 0 0;
     padding: 30px 20px 500px;
@@ -139,3 +142,14 @@ export const InfoSingleProduct = styled.div`
     }
 `
 
+export const ContentArrows = styled.div`
+
+`
+
+export const ArrowLeft = styled.div`
+
+`
+
+export const ArrowRight= styled.div`
+
+`

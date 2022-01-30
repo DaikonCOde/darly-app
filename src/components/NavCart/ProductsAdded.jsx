@@ -29,7 +29,7 @@ const ProductsAdded = ({ products }) => {
                         <DescriptionProduct>
                             <h3 className='titleProduct'>{product.title}</h3>
                             <span className='ratingProduct'>{product.rating} <span><MdStar /></span></span>
-                            <span className='priceProduct' ><span>S/. {product.price}</span>S/. {product.price} </span>
+                            <span className='priceProduct' ><span>S/. {product.totalPrice.toFixed(2)}</span>S/. {product.price.toFixed(2)} </span>
                         </DescriptionProduct>
                         <CountProduct>
                             <ButtonsCount as='button' type='button' onClick={() => dispatch(decrementCountProduct(product.id)) } > - </ButtonsCount>

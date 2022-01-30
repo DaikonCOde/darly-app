@@ -52,8 +52,8 @@ const GridProducts = () => {
                         </Link>
                             <ContentPrice>
                                 <div className='price'>
-                                    <span className='priceTotal'>S/. {product.totalPrice  }</span>
-                                    <span className='priceDesc' >S/. {product.price}</span>
+                                    <span className='priceTotal'>S/. {product.totalPrice.toFixed(2)  }</span>
+                                    <span className='priceDesc' >S/. {product.price.toFixed(2)}</span>
                                 </div>
                                 <ButtonGradient type='button' className='addToCart' onClick={ () => submitProductCar(product.id) } >
                                     <CgShoppingCart />

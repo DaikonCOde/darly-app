@@ -45,10 +45,10 @@ const CreateProduct = () => {
     const data = {
       title: e.target.elements.title.value,
       description: e.target.elements.description.value,
-      price: e.target.elements.price.value,
-      totalPrice: e.target.elements.totalPrice.value,
-      rating: e.target.elements.rating.value,
-      stock: e.target.elements.stock.value,
+      price: parseInt(e.target.elements.price.value),
+      totalPrice: parseInt(e.target.elements.totalPrice.value),
+      rating: parseInt(e.target.elements.rating.value),
+      stock: parseInt(e.target.elements.stock.value),
       img_url: urlImagePort,
       gallery_url: [ ...urlImagePort, ...urlImageGallery ],
     }

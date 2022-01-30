@@ -63,7 +63,7 @@ const NavCar = ({ isOpen, onClose}) => {
                             <>
                                 <span className='totalCount'>
                                     <span>Total</span>
-                                    S/. {totalCount}
+                                    S/. {totalCount.toFixed(2)} 
                                 </span>
                                 <ButtonGradient className='goPayment'>
                                     Comprar

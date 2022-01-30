@@ -21,7 +21,7 @@ export const ContentLoader = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-
+    width: 100%;
     .lds-ring {
         display: inline-block;
         position: relative;

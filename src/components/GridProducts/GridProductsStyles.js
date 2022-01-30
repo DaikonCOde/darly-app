@@ -7,7 +7,7 @@ export const ContentProducts = styled.div`
     grid-auto-rows: 1fr; 
     grid-gap: 10px;
     margin: 30px auto;
-    padding: 0 20px;
+    padding: 0 20px 80px;
     max-width: 400px;
     position: relative;
 `
