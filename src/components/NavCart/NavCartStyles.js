@@ -10,6 +10,14 @@ export const ContentNavCar = styled.div`
     z-index: 10;
     transition: all .5s linear;
     transform: ${ props => props.isOpen ? 'translateX(0%)' : 'translateX(100%)'  }; 
+    box-shadow: ${ props => props.isOpen ? '1px -1px 20px 0px #4c4c4c75': 'none' };
+    @media ${ props => props.theme.breakpoints.sm} {
+        width: 60%;
+        left: unset;
+    }
+    @media ${ props => props.theme.breakpoints.lg} {
+        width: 35%;
+    }
 `
 
 export const HeaderNavCar = styled.div`
@@ -44,7 +52,7 @@ export const HeaderNavCar = styled.div`
 `
 
 export const BodyNavCar = styled.div`
-    padding: 0 10px;
+    padding: 0 20px;
 `
 export const FooterNavCar = styled.div`
     padding: 15px 20px;
@@ -57,10 +65,12 @@ export const FooterNavCar = styled.div`
     right: 0;
     color: ${ props => props.theme.colors.gray[100] };
     font-weight: 600;
-
+    
     & .totalCount {
         font-size: 24px;
         line-height: 35px;
+        white-space: nowrap;
+        margin: 0 5px 0 0;
         & span {
             display: block;
             font-size: 16px;

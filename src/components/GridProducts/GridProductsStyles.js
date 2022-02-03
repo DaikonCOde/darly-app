@@ -7,16 +7,24 @@ export const ContentProducts = styled.div`
     grid-auto-rows: 1fr; 
     grid-gap: 10px;
     margin: 30px auto;
-    padding: 0 20px 80px;
-    max-width: 400px;
+    padding: 0 20px;
+    max-width: 1240px;
     position: relative;
+    @media ${ props => props.theme.breakpoints.sm} {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    @media ${ props => props.theme.breakpoints.lg} {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    @media ${ props => props.theme.breakpoints.lg} {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
 `
 
 export const SingleProduct = styled(box)`
     height: 100%;
     min-width: 135px;
-    width: 100%;
-    max-width: 180px;
+    max-width: 230px;
     padding: 14px;
     justify-self: center;
 `
@@ -31,14 +39,15 @@ export const ContentTitle = styled.div`
         font-size: 16px;
         font-weight: 600;
         line-height: 16px;
-        width: 135px;
+        min-width: 100px;
+        max-width: 160px;
         overflow:hidden;
         word-break: break-all;  
         text-overflow:ellipsis;
         display:-webkit-box; 
         -webkit-box-orient:vertical;
         -webkit-line-clamp:2; 
-        color: ${ props => props.theme.colors.gray[90] }
+        color: ${ props => props.theme.colors.gray[90] };
     };
 
     & .ratingProduct {
@@ -58,7 +67,8 @@ export const ContentTitle = styled.div`
 
 export const ContentImage = styled.div`
     width: 100%;
-    height: 140px;
+    min-height: 100px;
+    max-height: 200px;
     & img {
         object-fit: contain;
         width: 100%;
@@ -79,7 +89,7 @@ export const ContentPrice = styled.div`
 
     & .priceDesc {
         color: ${ props => props.theme.colors.gray[90] };
-        font-size: 14px;
+        font-size: 16px;
         font-weight: 600;
     }
 

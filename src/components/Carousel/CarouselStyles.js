@@ -4,6 +4,11 @@ export const ContentCarousel = styled.div`
     margin: 30px 0px;
     overflow: hidden;
     position: relative;
+    .itemsCarousel {
+        .swiper-wrapper {
+            justify-content: space-around;
+        }
+    }
 `
 
 export const ItemsCarousel = styled.div`
@@ -20,15 +25,13 @@ export const ItemsCarousel = styled.div`
 
 export const SingleItemCarousel = styled.div`
     min-width: 300px;
+    max-width: 430px;
     height: 190px;
     border-radius: 16px;
     background: linear-gradient(180deg, #5D9CC6 -2.89%, #4E5BB3 114.03%);
     margin: 0 0 0 20px;
     padding: 25px;
     display: flex;
-    &:nth-child(1) {
-        margin-left: 0;
-    }
 `
 export const ContentTextSlide = styled.div`
     width: 70%;

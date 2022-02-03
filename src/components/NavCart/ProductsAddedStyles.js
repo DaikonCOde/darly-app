@@ -6,14 +6,17 @@ export const ContentProductsAdded = styled.ul`
     margin: 0;
     max-height: 450px;
     overflow-y: auto;
-    padding: 0 10px 20px;
+    padding: 0 0 20px;
+    &::-webkit-scrollbar {
+        width: 4px;
+    }
 `
 
 export const SingleProductAdded = styled(box)`
     padding: 15px 10px;
     display: grid;
     margin: 15px auto;
-    max-width: 350px;
+    max-width: 390px;
     grid-template: 105px 30px / 100px 1fr ;
 `
 
@@ -34,7 +37,8 @@ export const DescriptionProduct = styled.div`
         color: ${ props => props.theme.colors.gray[100] };
         font-size: 18px;
         font-weight: 600;
-        width: 135px;
+        min-width: 100px;
+        max-width: 240px;
         overflow:hidden;
         word-break: break-all;  
         text-overflow:ellipsis;

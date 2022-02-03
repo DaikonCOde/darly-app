@@ -14,6 +14,8 @@ import Header from '../../components/Header/Header';
 
 // Styles
 import { ContentHome } from './HomeStyles';
+import { Content } from '../../Styles/GlobalComponents/content'
+
 
 const Home =  () => {
 
@@ -28,7 +30,6 @@ const Home =  () => {
             if (listProducts.length === products.length) return null;
 
             dispatch( updateListProducts(listProducts) );
-            console.log(listProducts)
         }
 
         data()
@@ -36,7 +37,7 @@ const Home =  () => {
     }, [dispatch, products] ) 
 
     return (
-        <>
+        <Content>
             <Header />
             <ContentHome>
                 <Search />
@@ -44,7 +45,7 @@ const Home =  () => {
                 <ListCategories />
                 <GridProducts />
             </ContentHome>
-        </>
+        </Content>
     )
 }
 

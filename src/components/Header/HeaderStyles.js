@@ -1,13 +1,19 @@
 import styled from "styled-components";
+import { Content } from '../../Styles/GlobalComponents/content'
+
+export const ContainerHeader = styled(Content) `
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 9;
+` 
 
 export const ContentHeader = styled.div`
     background: ${ props => props.theme.colors.gray[10]};
     display: grid;
     grid-template-columns: 50px 1fr 50px;
-    padding: 10px 20px;
-    position: sticky;
-    top: 0;
-    z-index: 9;
+    max-width: 1240px;
+    margin: 0 auto
 `
 
 export const ContentIcons = styled.div`

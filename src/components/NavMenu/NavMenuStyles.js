@@ -10,7 +10,15 @@ export const ContentNavMenu = styled.div`
     z-index: 10;
     transition: all .5s linear;
     padding: 15px 20px;
+    width: 100%;
     transform: ${ props => props.isOpen ? 'translateX(-0%)' : 'translateX(-100%)'  }; 
+    box-shadow: ${ props => props.isOpen ? '1px -1px 20px 0px #4c4c4c75': 'none' };
+    @media ${ props => props.theme.breakpoints.sm} {
+        width: 40%;
+    }
+    @media ${ props => props.theme.breakpoints.lg} {
+        width: 20%;
+    }
 
     & .contentIcon {
         color: ${ props => props.theme.colors.gray[100] };
