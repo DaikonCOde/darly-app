@@ -127,7 +127,7 @@ export const ImageSingleProduct = styled.div`
   position: sticky;
   z-index: 0;
   top: 0;
-  animation-duration: 4s;
+  animation-duration: 2s;
   animation-name: ${contentImageEntry};
   @media ${(props) => props.theme.breakpoints.lg} {
     width: 50%;
@@ -137,10 +137,10 @@ export const ImageSingleProduct = styled.div`
   }
   & img {
     min-width: 280px;
-    max-width: 320px;
+    max-width: 280px;
     display: block;
     margin: 0 auto;
-    animation-duration: 4s;
+    animation-duration: 2s;
     animation-name: ${imageEntry};
     @media ${(props) => props.theme.breakpoints.sm} {
       max-width: 350px;
@@ -186,7 +186,7 @@ export const InfoSingleProduct = styled.div`
   padding: 30px 20px 100px;
   position: relative;
   z-index: 1;
-  animation-duration: 3s;
+  animation-duration: 2s;
   animation-name: ${contentInfoEntry};
   @media ${(props) => props.theme.breakpoints.lg} {
     width: 40%;
@@ -235,7 +235,7 @@ export const ContentButtons = styled.div`
   justify-content: space-around;
   z-index: 2;
   animation-name: ${contentBtns};
-  animation-duration: 4s;
+  animation-duration: 2s;
   border-radius: 0px;
   @media ${(props) => props.theme.breakpoints.lg} {
     position: absolute;

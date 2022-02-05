@@ -9,13 +9,15 @@ export const GlobalStyles = createGlobalStyle`
         margin: 0;
         padding: 0;
         font-family: 'Barlow', sans-serif;
-        &::-webkit-scrollbar {
-            width :8px;
-            background: ${ props => props.theme.colors.gray[20] }
-        } 
-        &::-webkit-scrollbar-thumb {
-            border-radius: 10px;
-            background: ${ props => props.theme.colors.gray[50] };
+        @media ${ props => props.theme.breakpoints.lg} {
+            &::-webkit-scrollbar {
+                width :8px;
+                background: ${ props => props.theme.colors.gray[20] }
+            } 
+            &::-webkit-scrollbar-thumb {
+                border-radius: 10px;
+                background: ${ props => props.theme.colors.gray[50] };
+            }
         }
     }
     body {
@@ -44,7 +46,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     .categoryActive {
-        background: linear-gradient(138.31deg, #5D9CC6 -2.89%, #4E5BB3 114.03%) !important;
+        background: ${ props => props.theme.colors.gradient } !important;
         border: none
     }
 

@@ -4,9 +4,13 @@ export const ContentCarousel = styled.div`
     margin: 30px 0px;
     overflow: hidden;
     position: relative;
+    padding: 0 20px;
     .itemsCarousel {
         .swiper-wrapper {
-            justify-content: space-around;
+            justify-content: flex-start;
+            @media ${ props => props.theme.breakpoints.lg } {
+                justify-content: space-around;
+            }
         }
     }
 `
@@ -28,8 +32,7 @@ export const SingleItemCarousel = styled.div`
     max-width: 430px;
     height: 190px;
     border-radius: 16px;
-    background: linear-gradient(180deg, #5D9CC6 -2.89%, #4E5BB3 114.03%);
-    margin: 0 0 0 20px;
+    background: ${ props => props.theme.colors.gradient };
     padding: 25px;
     display: flex;
 `

@@ -1,52 +1,44 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 
-// DB
-import { updateListProducts } from '../../Store/Reducers/ListProducts/ListProducts';
-import { useDispatch, useSelector } from 'react-redux';
-import { getProducts } from '../../Helpers/getProducts';
-
+// Hooks
+import { useGetListProducts } from "../../Hooks/useGetListProducts";
+import { useSelector } from "react-redux";
 // Components
-import Search from '../../components/Search/Search';
-import Carousel from '../../components/Carousel/Carousel';
-import ListCategories from '../../components/ListCategories/ListCategories';
-import GridProducts from '../../components/GridProducts/GridProducts';
-import Header from '../../components/Header/Header';
+import Search from "../../components/Search/Search";
+import Carousel from "../../components/Carousel/Carousel";
+import StatusProduct from "../../components/StatusProduct/StatusProduct";
+import GridProducts from "../../components/GridProducts/GridProducts";
+import Header from "../../components/Header/Header";
 
 // Styles
-import { ContentHome } from './HomeStyles';
-import { Content } from '../../Styles/GlobalComponents/content'
+import { ContentHome } from "./HomeStyles";
+import { Content } from "../../Styles/GlobalComponents/content";
 
+const Home = () => {
+  const { products } = useSelector((state) => state.listProducts);
+  const { productsByStatus } = useSelector((state) => state.listStatusProducts);
 
-const Home =  () => {
+  const [getListProducts] = useGetListProducts();
 
-    const dispatch = useDispatch();
-    const { products } = useSelector(state => state.listProducts)
+  useEffect(() => {
+    if (products.length === 0) {
+      getListProducts();
+    }
 
-    useEffect( () => {
-        
-        const data = async () => {
-            const listProducts =  await getProducts();
-            
-            if (listProducts.length === products.length) return null;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-            dispatch( updateListProducts(listProducts) );
-        }
+  return (
+    <Content>
+      <Header />
+      <ContentHome>
+        <Search />
+        <Carousel />
+        <StatusProduct />
+        <GridProducts products={productsByStatus} />
+      </ContentHome>
+    </Content>
+  );
+};
 
-        data()
-    
-    }, [dispatch, products] ) 
-
-    return (
-        <Content>
-            <Header />
-            <ContentHome>
-                <Search />
-                <Carousel />
-                <ListCategories />
-                <GridProducts />
-            </ContentHome>
-        </Content>
-    )
-}
-
-export default Home
+export default Home;

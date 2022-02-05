@@ -4,9 +4,11 @@ import { auth } from './db/connect';
 import { onAuthStateChanged } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
 import { DBfirestore } from './db/connect';
-
+// Redux
 import { signInUser } from './Store/Reducers/Users/Users';
 import { useDispatch } from 'react-redux';
+// Hooks
+import { useGetListOfCategories } from './Hooks/useGetListOfCategories';
 // Pages
 import Home from './pages/Home/Home'
 import SingleProduct from './pages/SingleProduct/SingleProduct';
@@ -22,7 +24,8 @@ import Theme from './Styles/theme';
 const App = () => {
 
   const dispatch = useDispatch()
-
+  useGetListOfCategories();
+  
   onAuthStateChanged(auth, async (user ) => {
     if(user) {
       const getInfoUser = await getDoc( doc(DBfirestore, `users`, user.uid) )

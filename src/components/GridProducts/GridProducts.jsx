@@ -2,9 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom' 
 
 import Loading from '../../components/Loading/Loading';
-// Reducers
-import { useSelector} from 'react-redux';
-
 // Styles
 import { ContentProducts, SingleProduct, ContentTitle, ContentImage, ContentPrice } from './GridProductsStyles'
 import { ButtonGradient } from '../../Styles/GlobalComponents/buttonGradient';
@@ -16,11 +13,9 @@ import { MdStar } from 'react-icons/md';
 
 import { AddProductCart } from '../../Helpers/AddProductCart';
 
-const GridProducts = () => {
+const GridProducts = ({ products }) => {
 
     const [ submitProductCart ] = AddProductCart()
-
-    const { products } = useSelector( (state) => state.listProducts )
 
     return (
         <ContentProducts>

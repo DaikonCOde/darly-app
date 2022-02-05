@@ -69,8 +69,8 @@ const Carousel = () => {
           }}
         >
           {data.map((slide) => (
-            <SwiperSlide>
-              <SingleItemCarousel key={slide.id}>
+            <SwiperSlide key={slide.id} >
+              <SingleItemCarousel >
                 <ContentTextSlide>
                   <span>{slide.cta}</span>
                   <h3>{slide.title}</h3>

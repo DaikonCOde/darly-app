@@ -1,52 +1,62 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { auth } from '../../db/connect';
-import {  signOut } from 'firebase/auth';
-import { useSelector } from 'react-redux';
+import React, { useState } from "react";
+// firebase
+import { signOut } from "firebase/auth";
+import { auth } from "../../db/connect";
 // Icons
-import { CgChevronLeft } from 'react-icons/cg'
+import { CgChevronLeft } from "react-icons/cg";
+import { MdKeyboardArrowDown } from "react-icons/md"
+// Hooks
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 // Styles
-import { ContentNavMenu } from './NavMenuStyles';
-import { ButtonGradient } from '../../Styles/GlobalComponents/buttonGradient';
+import { ButtonGradient } from "../../Styles/GlobalComponents/buttonGradient";
+import { ContentNavMenu, ListMenu, Item, ListSubMenu, SubItem } from "./NavMenuStyles";
 
-const NavMenu = ( { isOpen, setOpen } ) => {
+const NavMenu = ({ isOpen, setOpen }) => {
+  const [ submenuIsOpen, setSubmenuIsOpen ] = useState(false);
+  const { currentUser } = useSelector((state) => state.users);
+  const { listCategories } = useSelector((state) => state.categories);
 
-    const { currentUser } = useSelector( (state) => state.users );
+  return (
+    <ContentNavMenu isOpen={isOpen}>
+      <div className="contentIcon" onClick={() => setOpen(false)}>
+        <CgChevronLeft />
+      </div>
+      <ListMenu className="listMenu">
+        <Item submenuIsOpen= {submenuIsOpen } >
+          <span  
+            onClick={ () => setSubmenuIsOpen( !submenuIsOpen ) } 
+          > 
+            Categorias
+            <span className="icon"><MdKeyboardArrowDown /> </span> 
+          </span>
+          <ListSubMenu submenuIsOpen= {submenuIsOpen } > 
+            {
+              listCategories.map(category => (
+                <SubItem key={ category.id }> { category.name }</SubItem>
+              ))
+            }
+          </ListSubMenu>
+        </Item>
+        {currentUser ? (
+          <>
+            <Item >
+              <Link to="/dashboard">Dashboard</Link>
+            </Item>
+            <Item >
+              <ButtonGradient className="signOut" onClick={() => signOut(auth)}>
+                Cerrar Sesión
+              </ButtonGradient>
+            </Item>
+          </>
+        ) : (
+          <Item >
+            <Link to="/login">Iniciar Sesión</Link>
+          </Item>
+        )}
+      </ListMenu>
+    </ContentNavMenu>
+  );
+};
 
-    return (
-        <ContentNavMenu isOpen={isOpen}>
-            <div className='contentIcon' onClick={() => setOpen(false)} >
-                <CgChevronLeft />
-            </div>
-            <ul className='listMenu'>
-                { currentUser 
-                    ? (
-                        <>
-                            <li className='item'>
-                                <Link to='/dashboard' >
-                                    Dashboard
-                                </Link>
-                            </li>
-                            <li className='item'>
-                                <ButtonGradient className='signOut' onClick={() => signOut(auth)} >
-                                    Cerrar Sesión
-                                </ButtonGradient>
-                            </li>
-                        </>
-                    )
-                    : (
-                        <li className='item'>
-                            <Link to='/login'>
-                                Iniciar Sesión
-                            </Link>
-                        </li>
-                    )
-
-                }
-
-            </ul>
-        </ContentNavMenu>
-    )
-}
-
-export default NavMenu
+export default NavMenu;
