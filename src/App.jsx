@@ -13,6 +13,7 @@ import { useGetListOfCategories } from './Hooks/useGetListOfCategories';
 import Home from './pages/Home/Home'
 import SingleProduct from './pages/SingleProduct/SingleProduct';
 import Login from './pages/Login/Login';
+import Category from './pages/Category/Category';
 // Admin
 import Layout from './Admin/Layout/Layout';
 import DashboardHome from './Admin/Pages/DashboardHome/DashboardHome';
@@ -20,6 +21,8 @@ import Products from './Admin/Pages/Products/Products';
 import CreateProduct from './Admin/Pages/CreateProduct/CreateProduct';
 // Styles
 import Theme from './Styles/theme';
+// Layout
+import HeaderDefaultLayout from './Layout/HeaderDefaultLayout';
 
 const App = () => {
 
@@ -44,7 +47,10 @@ const App = () => {
     <BrowserRouter> 
       <Theme>
         <Routes>
-          <Route path='/' element={<Home />} ></Route>
+          <Route path='/' element={<HeaderDefaultLayout />} >
+            <Route index element={ <Home /> } />
+            <Route path='category' element={ <Category /> } />
+          </Route>
           <Route path='/producto/:id' element={<SingleProduct />} />
           <Route path='/login' element={ <Login /> } />
           <Route path='/dashboard' element={ <Layout /> } > 

@@ -28,10 +28,17 @@ const StatusProduct = [
 ];
 
 const StatusProducts = () => {
-  const [getProductsByStatusProduct] = useGetProductsByStatus();
+
+  if(!localStorage.getItem("idStatusProduct")) {
+    localStorage.setItem("idStatusProduct", 0);
+  }
+
+  const [ getProductsByStatusProduct ] = useGetProductsByStatus();
 
   useEffect(() => {
-    ChangeCategory(0);
+    const statusId = parseInt(localStorage.getItem("idStatusProduct"));
+    console.log(statusId);
+    ChangeCategory(statusId);
   }, []);
 
   // handle click on single categorie
@@ -41,6 +48,7 @@ const StatusProducts = () => {
     const type = e.target.dataset.type;
 
     getProductsByStatusProduct(type);
+    localStorage.setItem("idStatusProduct", id);
     ChangeCategory(id);
   };
 

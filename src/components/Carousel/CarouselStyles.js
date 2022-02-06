@@ -4,7 +4,6 @@ export const ContentCarousel = styled.div`
     margin: 30px 0px;
     overflow: hidden;
     position: relative;
-    padding: 0 20px;
     .itemsCarousel {
         .swiper-wrapper {
             justify-content: flex-start;

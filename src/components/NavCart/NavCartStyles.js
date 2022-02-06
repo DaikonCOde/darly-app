@@ -32,6 +32,7 @@ export const HeaderNavCar = styled.div`
         font-size: 25px;
         font-weight: 600;
         position: relative;
+        cursor: pointer;
         &::before {
             position: absolute;
             content: '';

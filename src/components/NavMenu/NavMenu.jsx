@@ -33,7 +33,11 @@ const NavMenu = ({ isOpen, setOpen }) => {
           <ListSubMenu submenuIsOpen= {submenuIsOpen } > 
             {
               listCategories.map(category => (
-                <SubItem key={ category.id }> { category.name }</SubItem>
+                <SubItem key={ category.id } onClick={() => setOpen(false)}> 
+                  <Link to={`/category?q=${ category.id }`}>
+                    { category.name }
+                  </Link>
+                </SubItem>
               ))
             }
           </ListSubMenu>

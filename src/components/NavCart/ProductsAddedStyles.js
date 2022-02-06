@@ -98,6 +98,7 @@ export const ButtonsCount = styled(box)`
     color: ${ props => props.theme.colors.gray[100] };
     font-weight: 700;
     transition: all .5s linear;
+    cursor: pointer;
     &:active {
         transform: scale(0.05);
     }
@@ -120,6 +121,7 @@ export const DeleteProduct = styled.button`
         color: ${ props => props.theme.colors.gray[50] };
         font-size: 14px;
         font-weight: 600;
+        cursor: pointer;
     }
     &:active {
         transform: scale(0.85);

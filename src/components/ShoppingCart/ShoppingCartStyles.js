@@ -8,6 +8,7 @@ export const ContentShoppingCart = styled.div`
     text-align: ${ props => props.align || 'start'};
     position: relative;
     padding: 0 8px 0 0;
+    cursor: pointer;
     &::before {
         position: absolute;
         content: '';

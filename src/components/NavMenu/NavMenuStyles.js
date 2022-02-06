@@ -10,7 +10,7 @@ export const ContentNavMenu = styled.div`
   z-index: 10;
   transition: all 0.5s linear;
   padding: 15px 20px;
-  width: 100%;
+  width: 80%;
   transform: ${(props) =>
     props.isOpen ? "translateX(-0%)" : "translateX(-100%)"};
   box-shadow: ${(props) =>
@@ -31,6 +31,8 @@ export const ContentNavMenu = styled.div`
     font-size: 25px;
     font-weight: 600;
     position: relative;
+    cursor: pointer;
+
     &::before {
       position: absolute;
       content: "";
@@ -53,6 +55,7 @@ export const Item = styled.li`
   font-size: 16px;
   margin: 15px 0;
   font-weight:600;
+  cursor: pointer;
   .signOut {
     font-size: 16px;
     text-transform: none;
@@ -66,6 +69,7 @@ export const Item = styled.li`
     font-size: 25px;
     transform: ${ props => props.submenuIsOpen ? 'rotate(180deg)' : ' rotate(0deg) ' };
     transition: all 0.3s linear;
+    line-height: 0;
   }
 `
 

@@ -8,7 +8,6 @@ import Search from "../../components/Search/Search";
 import Carousel from "../../components/Carousel/Carousel";
 import StatusProduct from "../../components/StatusProduct/StatusProduct";
 import GridProducts from "../../components/GridProducts/GridProducts";
-import Header from "../../components/Header/Header";
 
 // Styles
 import { ContentHome } from "./HomeStyles";
@@ -30,7 +29,6 @@ const Home = () => {
 
   return (
     <Content>
-      <Header />
       <ContentHome>
         <Search />
         <Carousel />

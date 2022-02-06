@@ -3,6 +3,7 @@ import { Content } from '../../Styles/GlobalComponents/content'
 
 export const ContainerHeader = styled(Content) `
     padding: 10px 20px;
+    min-height: fit-content;
     position: sticky;
     top: 0;
     z-index: 9;
@@ -24,6 +25,7 @@ export const ContentIcons = styled.div`
     text-align: ${ props => props.align || 'start'};
     position: relative;
     padding: 0 8px 0 0;
+    cursor: pointer;
     &::before {
         position: absolute;
         content: '';

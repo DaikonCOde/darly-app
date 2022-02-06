@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { ContentInput } from '../../Styles/GlobalComponents/contentInput'
 
 export const ContentSearch = styled.div`
-    margin: 0 20px;
 
 `
 

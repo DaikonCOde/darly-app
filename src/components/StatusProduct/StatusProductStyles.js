@@ -6,7 +6,7 @@ export const ContentListCategories = styled.div`
     flex-direction: row;
     flex-wrap: nowrap;
     overflow-x: auto;
-    margin: 50px 20px 0;
+    margin: 50px 0px 0;
     padding: 0 0 15px 0;
 
 `
@@ -16,4 +16,5 @@ export const SingleCategory = styled(box)`
     color: ${ props => props.theme.colors.gray[90] };
     font-weight: 600;
     margin: 0 5px;
+    cursor: pointer;
 `

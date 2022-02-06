@@ -7,7 +7,6 @@ export const ContentProducts = styled.div`
     grid-auto-rows: 1fr; 
     grid-gap: 10px;
     margin: 30px auto;
-    padding: 0 20px;
     max-width: 1240px;
     position: relative;
     @media ${ props => props.theme.breakpoints.sm} {

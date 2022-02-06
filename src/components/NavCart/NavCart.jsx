@@ -33,7 +33,6 @@ const NavCar = ({ isOpen, onClose}) => {
     useEffect(() => {
         const defaultMessage = `https://api.whatsapp.com/send?phone=${config.PHONE}&text=Hola%20Darly%20Store%20quiero%20adquirir%20estos%20productos:`
         const products = JSON.parse(localStorage.getItem('ListProductsAdded'));
-        console.log(products);
 
         const messageProducts = []
         
