@@ -6,7 +6,7 @@ export const useGetProductsByStatus = () => {
   const { products } = useSelector((state) => state.listProducts);
   const dispatch = useDispatch();
 
-  const getProductsByStatusProduct = (type) => {
+  const getProductsByStatus = (type) => {
 
     if ( type === 'all') {
       dispatch(updateListStatusProducts(products));
@@ -20,5 +20,5 @@ export const useGetProductsByStatus = () => {
     dispatch(updateListStatusProducts(listOfFilterProducts));
   };
 
-  return [getProductsByStatusProduct];
+  return [getProductsByStatus];
 };

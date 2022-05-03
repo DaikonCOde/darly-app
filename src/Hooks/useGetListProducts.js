@@ -11,7 +11,7 @@ export const  useGetListProducts =  () =>  {
 
   const getListProducts = async () => {
     
-    const listProducts = await getDocs(collection(DBfirestore, 'products'));
+    const listProducts = await getDocs(collection(DBfirestore, 'listProducts'));
     const arrayOfProducts = [];
   
     listProducts.forEach((doc) => {

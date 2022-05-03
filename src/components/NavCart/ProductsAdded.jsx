@@ -36,7 +36,7 @@ const ProductsAdded = ({ products }) => {
             />
           </ImageProduct>
           <DescriptionProduct>
-            <Link to={`/${product.id}`}>
+            <Link to={`/producto/${product.id}`}>
               <h3 className="titleProduct">{product.title}</h3>
             </Link>
             <span className="ratingProduct">

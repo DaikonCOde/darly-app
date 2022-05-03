@@ -56,4 +56,16 @@ export const ContentLogo = styled.div`
     font-size: 25px;
     font-weight: 600;
     text-align: center;
+    .imgLogo {
+        width: 30px;
+        height: fit-content;
+        line-height: 0;
+        display: inline-block;
+        margin: 0 10px 0 0;
+        img {
+            width: 100%;
+            vertical-align: middle;
+        }
+    }
+
 `

@@ -11,7 +11,7 @@ export const useGetListProductsByCategory = () => {
   const getListProductsByCategory = async (category) => {
     setIsLoading(true);
     try {
-      const q = query( collection( DBfirestore, 'products' ),  where( 'category', '==', doc( DBfirestore, 'categories', category ) ) )
+      const q = query( collection( DBfirestore, 'listProducts' ),  where( 'category', '==', doc( DBfirestore, 'categories', category ) ) )
   
       const result = await getDocs(q);
   

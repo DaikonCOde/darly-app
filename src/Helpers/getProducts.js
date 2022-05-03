@@ -3,7 +3,7 @@ import { DBfirestore } from '../db/connect';
 
 export async function getProducts () {
 
-    const listProducts = await getDocs(collection(DBfirestore, 'products'));
+    const listProducts = await getDocs(collection(DBfirestore, 'listProducts'));
     const arrayOfProducts = [];
 
     listProducts.forEach((doc) => {

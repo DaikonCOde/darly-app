@@ -17,7 +17,6 @@ export const ContentLoader = styled.div`
     bottom: 0;
     right: 0;
     background: ${ props => props.theme.colors.gray[10] };
-    z-index: 10;
     display: flex;
     justify-content: center;
     align-items: center;

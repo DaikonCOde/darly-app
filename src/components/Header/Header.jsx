@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import ShoppingCart from '../ShoppingCart/ShoppingCart';
 import NavMenu from '../NavMenu/NavMenu';
 
+import Logo from '../../Assets/image/logos.svg';
+
 // Icons
 import { CgMenuLeft } from 'react-icons/cg'
 
@@ -19,11 +21,16 @@ const Header = () => {
         <ContainerHeader>
             <ContentHeader  >
                 <ContentIcons onClick={() => setOpen(true)} ><CgMenuLeft  /></ContentIcons>
-                <ContentLogo > <Link to='/'>Darly Store</Link> </ContentLogo>
+                <ContentLogo >
+                    <Link to='/'>
+                        <span className='imgLogo' ><img src={Logo} alt="Darly Store" /></span>
+                        Darly Store
+                    </Link> 
+                </ContentLogo>
                 <ShoppingCart />
             </ContentHeader>
             <NavMenu isOpen={open} setOpen={setOpen} />
-        </ContainerHeader>
+        </ContainerHeader>  
     )
 }
 

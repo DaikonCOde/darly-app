@@ -5,6 +5,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { updateListProducts } from "../../Store/Reducers/ListProducts/ListProducts";
 import { getProducts } from "../../Helpers/getProducts";
 import { AddProductCart } from "../../Helpers/AddProductCart";
+import { createReactEditorJS } from "react-editor-js";
+import { EDITOR_JS_TOOLS } from "../../Utils/toolsEditor";
 // Conponents
 import ShoppingCart from "../../components/ShoppingCart/ShoppingCart";
 import Loading from "../../components/Loading/Loading";
@@ -45,9 +47,12 @@ const SingleProduct = () => {
   const [submitProductCart] = AddProductCart();
   const dispatch = useDispatch();
 
+  const ReactEditorJs = createReactEditorJS()
+
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
 
   useEffect(() => {
     const getData = async () => {
@@ -63,10 +68,13 @@ const SingleProduct = () => {
       setLoading(false);
     };
 
+
     getData();
 
+    
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
+  console.log(product.description)
 
   const handlePath = (e) => {
     navigate(-1);
@@ -117,7 +125,13 @@ const SingleProduct = () => {
               <span>S/. {product.totalPrice}</span> S/.{" "}
               {product.price.toFixed(2)}{" "}
             </span>
-            <p className="description"> {product.description} </p>
+            <div className="description" >
+              <ReactEditorJs 
+                tools={EDITOR_JS_TOOLS}
+                defaultValue={ product.description }
+                readOnly='true'
+              ></ReactEditorJs>
+            </div>
             <ContentButtons>
               <ButtonGradient as="a" href={urlWhatsApp} target="_blank">
                 Comprar

@@ -33,6 +33,8 @@ export const GlobalStyles = createGlobalStyle`
 
     button {
         border: none;
+        background: none;
+        cursor: pointer;
     }
 
     ul {
@@ -48,6 +50,11 @@ export const GlobalStyles = createGlobalStyle`
     .categoryActive {
         background: ${ props => props.theme.colors.gradient } !important;
         border: none
+    }
+
+    &::selection {
+        color: ${ props => props.theme.colors.gray[10]};
+        background: ${ props => props.theme.colors.gray[70]};
     }
 
 `;

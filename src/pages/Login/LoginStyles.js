@@ -41,21 +41,27 @@ export const ContentBrand = styled.div`
 export const ContentForm = styled.form`
     margin: 40px auto 0;
     max-width:400px;
+    cursor: pointer;
 
     & .buttonSubmitForm {
         width: 100%;
         padding: 16px 0;
         line-height: 25px;
         margin: 30px 0 0;
+        cursor: pointer;
     }
     .alreadyRegistered, .signIn, .signInFailed {
         display: block;
         text-align: center;
         color: ${ props => props.theme.colors.gray[80] };
+        transition: all .2s linear;
         margin: 20px 0 0 0 ;
+        &:hover { 
+            color: ${ props => props.theme.colors.gray[90] };
+        }
     }
     .google {
-        margin: 40px 0 0 0;
+        margin: 40px 0 0 0; 
     }
     .signIn {
         color: ${ props => props.theme.colors.gray[100] };

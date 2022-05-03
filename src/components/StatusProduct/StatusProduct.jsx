@@ -33,7 +33,7 @@ const StatusProducts = () => {
     localStorage.setItem("idStatusProduct", 0);
   }
 
-  const [ getProductsByStatusProduct ] = useGetProductsByStatus();
+  const [ getProductsByStatus ] = useGetProductsByStatus();
 
   useEffect(() => {
     const statusId = parseInt(localStorage.getItem("idStatusProduct"));
@@ -47,7 +47,7 @@ const StatusProducts = () => {
     const id = parseInt(e.target.id);
     const type = e.target.dataset.type;
 
-    getProductsByStatusProduct(type);
+    getProductsByStatus(type);
     localStorage.setItem("idStatusProduct", id);
     ChangeCategory(id);
   };

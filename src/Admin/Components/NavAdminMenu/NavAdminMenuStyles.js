@@ -7,6 +7,8 @@ export const ContentNavAdminMenu = styled.div`
   background: ${ props => props.theme.colors.gray[20] };
   height: 100%;
   min-height: 100vh;
+  position: fixed;
+  top: 0;
 `
 
 export const Brand = styled.h2`

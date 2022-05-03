@@ -221,6 +221,16 @@ export const InfoSingleProduct = styled.div`
     color: ${(props) => props.theme.colors.gray[90]};
     line-height: 26px;
     margin: 20px 0 0 0;
+    .ce-paragraph {
+      line-height: 20px;
+    }
+    .cdx-list__item {
+      padding: 0;
+    }
+  }
+
+  & .codex-editor__redactor {
+    padding: 0 !important;
   }
 `;
 

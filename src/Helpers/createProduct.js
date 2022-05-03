@@ -11,11 +11,10 @@ import { DBfirestore } from "../db/connect";
 
 export const createProduct = async (data) => {
 
-  const slug = data.title.toLowerCase().replace(/['"/ ] +/g, '-');
-
-  const refProducts = doc(DBfirestore, `products/${slug}`);
+  const slug = data.title.toLowerCase().replace(/['"/ ]+/g, '-');
+  console.log(slug);
   try {
-    await setDoc(refProducts, data)
+    await setDoc(doc(DBfirestore, 'listProducts', slug), data)
     return true
   } catch (error) {
     return false
