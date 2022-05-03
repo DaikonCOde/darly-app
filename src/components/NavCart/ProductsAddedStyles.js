@@ -22,8 +22,12 @@ export const SingleProductAdded = styled(box)`
 
 export const ImageProduct = styled.div`
     width: 100%;
+    display: flex;
+    align-items: center;
     & .imageProduct {
         max-height: 100px;
+        max-width: 100px;
+        object-fit: contain;
         display: block;
         margin: 0 auto;
     }

@@ -134,10 +134,15 @@ export const ImageSingleProduct = styled.div`
     height: 100%;
     animation-name: ${fade};
   }
+  .itemCarousel {
+    display: flex;
+    align-items: center;
   }
   & img {
     min-width: 280px;
     max-width: 280px;
+    max-height: 280px;
+    object-fit: contain;
     display: block;
     margin: 0 auto;
     animation-duration: 2s;

@@ -66,8 +66,11 @@ export const ContentTitle = styled.div`
 
 export const ContentImage = styled.div`
     width: 100%;
-    min-height: 100px;
-    max-height: 200px;
+    max-height: 150px;
+    min-height: 150px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
     & img {
         object-fit: contain;
         width: 100%;

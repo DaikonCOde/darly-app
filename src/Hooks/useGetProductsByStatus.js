@@ -14,7 +14,7 @@ export const useGetProductsByStatus = () => {
     }
 
     const listOfFilterProducts = products.filter(
-      (product) => product.statusProduct[type]
+      (product) => product.statusProduct === type
     );
 
     dispatch(updateListStatusProducts(listOfFilterProducts));

@@ -17,7 +17,7 @@ const StatusProduct = [
   },
   {
     title: "Pronto",
-    type: "comingSoon",
+    type: "commingSoon",
     id: 2,
   },
   {
@@ -37,7 +37,6 @@ const StatusProducts = () => {
 
   useEffect(() => {
     const statusId = parseInt(localStorage.getItem("idStatusProduct"));
-    console.log(statusId);
     ChangeCategory(statusId);
   }, []);
 
@@ -46,6 +45,7 @@ const StatusProducts = () => {
   const HandleCategories = (e) => {
     const id = parseInt(e.target.id);
     const type = e.target.dataset.type;
+    console.log(type)
 
     getProductsByStatus(type);
     localStorage.setItem("idStatusProduct", id);
